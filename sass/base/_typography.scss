@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+h1 {
+  font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Press Start 2P", system-ui;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: "Press Start 2P", system-ui;
+  font-size: clamp(1.2rem, 2vw + 1rem, 1.8rem);
+  text-align: center;
+  padding: 2rem;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 2vw + 1rem, 1.4rem);
+}
+
+p {
+  font-size: clamp(0.9rem, 1vw + 0.5rem, 1rem);
+  font-family: "Poppins", sans-serif;
+}

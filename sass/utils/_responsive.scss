@@ -1,0 +1,82 @@
+/************************* Tablette ****************************/
+@media (max-width: 1024px) {
+  //Birthday Section
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+    padding: 0 3rem;
+
+    .container-birthday-img {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 200px;
+      }
+    }
+  }
+
+  //News Section
+  .news-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 2rem 2rem;
+
+    .news-card {
+      img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+/************************* Large Mobile Screen ****************************/
+//Birthday Section
+@media only screen and (max-width: 767px) {
+  .posts {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+
+    .container-birthday-img {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 180px;
+      }
+    }
+  }
+}
+/************************* Small Mobile Screen ****************************/
+@media only screen and (max-width: 500px) {
+  //Birthday Section
+  .posts {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .container-birthday-img {
+      img {
+        width: 200px;
+      }
+    }
+  }
+
+  //News Section
+  .news-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    .news-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

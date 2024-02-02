@@ -1,0 +1,21 @@
+/*********************** Utils ************************/
+@import "./sass/utils/variables.scss";
+@import "./sass/utils/mixins.scss";
+
+/*********************** Base ************************/
+@import "./sass/base/reset.scss";
+@import "./sass/base/typography.scss";
+
+/*********************** Components ************************/
+@import "./sass/components/button.scss";
+
+/*********************** Home ************************/
+@import "./sass/pages/home/hero-section.scss";
+@import "./sass/pages/home/birthday-section.scss";
+@import "./sass/pages/home/news-section.scss";
+@import "./sass/pages/home/database-highlight.scss";
+/*********************** Layouts ************************/
+@import "./sass/layouts/navBar.scss";
+
+/*********************** Responsive ************************/
+@import "./sass/utils/responsive.scss";

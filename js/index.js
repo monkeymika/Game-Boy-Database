@@ -1,0 +1,126 @@
+/******** Nav animation bloc***********/
+document.addEventListener("DOMContentLoaded", function () {
+	const toggleButton = document.querySelector(".burger");
+	const overlay = document.querySelector('.overlay');
+	const overlayMenu = document.querySelector('.overlay-menu');
+	let isOpen = false
+
+	const timeline = gsap.timeline({
+		paused: true,
+		onStart: () => {
+			// Définir le z-index à 0 quand l'animation commence
+			overlay.style.zIndex = '0';
+			overlayMenu.style.zIndex = '0';
+		},
+		onReverseComplete: () => {
+			// Remettre le z-index à -1 quand l'animation est inversée et complète
+			overlay.style.zIndex = '-1';
+			overlayMenu.style.zIndex = '-1';
+		}
+	});
+
+	timeline.to(".block", {
+		duration: 1,
+		clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+		stagger: 0.075,
+		ease: "power3.inOut",
+	});
+
+	timeline.to(
+		".menu-title, .menu-item,.search-bar",
+		{
+			duration: 0.3,
+			opacity: 1,
+			stagger: 0.05,
+		},
+		"-=0.5"
+	);
+
+	toggleButton.addEventListener("click", function () {
+		if (isOpen) {
+			timeline.reverse();
+		} else {
+			timeline.play();
+		}
+		isOpen = !isOpen
+	});
+
+})
+
+
+
+document.querySelectorAll('.menu-item-name').forEach(item => {
+	item.addEventListener('click', () => {
+		item.classList.toggle('active');
+	});
+});
+
+
+
+/* SearchBar animation on click */
+document.addEventListener('DOMContentLoaded', function () {
+	var searchInput = document.querySelector('.search-bar input[type="text"]');
+	var searchButton = document.querySelector('.search-bar button');
+
+	searchButton.addEventListener('click', function () {
+		if (!searchInput.classList.contains('expanded')) {
+			searchInput.classList.add('expanded');
+			searchButton.classList.add('expanded');
+			searchInput.focus(); // Met le focus sur l'input quand il est ouvert
+		} else {
+			// Ici, tu mettras plus tard le code pour la recherche
+		}
+	});
+});
+
+
+/*NavBar animaiton on scroll */
+document.addEventListener('DOMContentLoaded', function () {
+	var nav = document.querySelector('nav');
+
+	window.addEventListener('scroll', function () {
+		if (window.scrollY > 50) { // Ajuste ce nombre en fonction de quand tu veux que le changement se produise
+			nav.classList.add('scrolled');
+		} else {
+			nav.classList.remove('scrolled');
+		}
+	});
+});
+
+
+
+
+/* Initialize Swiper */
+var swiper = new Swiper(".slide-container", {
+	slidesPerView: 4,
+	spaceBetween: 20,
+	sliderPerGroup: 4,
+	loop: true,
+	centerSlide: "true",
+	fade: "true",
+	grabCursor: "true",
+	pagination: {
+		el: ".swiper-pagination",
+		clickable: true,
+		dynamicBullets: true,
+	},
+	navigation: {
+		nextEl: ".swiper-button-next",
+		prevEl: ".swiper-button-prev",
+	},
+
+	breakpoints: {
+		0: {
+			slidesPerView: 1,
+		},
+		520: {
+			slidesPerView: 2,
+		},
+		768: {
+			slidesPerView: 3,
+		},
+		1000: {
+			slidesPerView: 4,
+		},
+	},
+});

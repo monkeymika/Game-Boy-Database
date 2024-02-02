@@ -1,0 +1,19 @@
+@mixin see-more {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.3em;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  background: $darkPurple-GB;
+  color: white;
+  transition: 0.2s ease-out;
+
+  &:hover {
+    transform: scale(1.09);
+    background: $purple-GB;
+  }
+}
