@@ -1,13 +1,12 @@
 .news-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  padding: 2rem 5rem;
+  gap: 3rem;
+  padding: 2rem 10rem;
 
   .news-card {
+    @include box-shadow;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 
     &::after {
       content: "";

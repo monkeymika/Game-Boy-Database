@@ -11,6 +11,11 @@
   background: #fff;
   border-radius: 8px;
   text-align: center;
+  @include box-shadow;
+}
+
+.card-wrapper {
+  padding: 1rem 0;
 }
 .card .image-box {
   height: 200px;
@@ -41,6 +46,11 @@
   font-weight: 500;
   color: #4d4d4d;
 }
+
+.swiper {
+  padding: 3rem 0 !important;
+}
+
 .swiper-navBtn {
   color: #000;
   height: 40px;
@@ -61,14 +71,22 @@
   padding: 0.8rem;
 }
 
-.swiper-button-next:after,
-.swiper-button-prev:after {
+.swiper-button-next1::after,
+.swiper-button-prev1::after,
+.swiper-button-next2::after,
+.swiper-button-prev2::after,
+.swiper-button-next3::after,
+.swiper-button-prev3::after {
   content: "";
   color: $purple-GB;
   background: none;
 }
-.swiper-button-next,
-.swiper-button-prev {
+.swiper-button-next1,
+.swiper-button-prev1,
+.swiper-button-next2,
+.swiper-button-prev2,
+.swiper-button-next3,
+.swiper-button-prev3 {
   width: 80%;
   background: none;
 }

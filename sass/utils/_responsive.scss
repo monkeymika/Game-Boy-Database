@@ -35,8 +35,8 @@
 }
 
 /************************* Large Mobile Screen ****************************/
-//Birthday Section
 @media only screen and (max-width: 767px) {
+  //Birthday Section
   .posts {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
@@ -51,6 +51,19 @@
         width: 180px;
       }
     }
+  }
+  //Comments Section
+
+  .container-comments {
+    max-width: 400px;
+  }
+
+  .container-data {
+    flex-direction: column;
+  }
+
+  .comments-content {
+    text-align: center;
   }
 }
 /************************* Small Mobile Screen ****************************/
@@ -77,6 +90,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+  }
+
+  //Comments Section
+
+  .container-comments {
+    max-width: 250px;
+  }
+
+  .container-data {
+    flex-direction: column;
+
+    .comments-img {
+      img {
+        width: 50px;
+        height: 50px;
+      }
     }
   }
 }
