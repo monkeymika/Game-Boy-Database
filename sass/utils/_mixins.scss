@@ -11,6 +11,7 @@
   background: $darkPurple-GB;
   color: white;
   transition: 0.2s ease-out;
+  font-size: clamp(1rem, 2vw + 1rem, 1.4rem);
 
   &:hover {
     transform: scale(1.09);

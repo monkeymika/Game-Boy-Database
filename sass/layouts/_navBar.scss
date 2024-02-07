@@ -5,7 +5,7 @@ nav {
 
 nav.scrolled {
   background-color: $darkPurple-GB;
-  height: 80px;
+  height: 90px;
 }
 
 nav .logo img,
@@ -15,7 +15,7 @@ nav .logo-main img {
 
 nav.scrolled .logo img,
 nav.scrolled .logo-main img {
-  transform: scale(0.5);
+  transform: scale(0.8);
 }
 /* End */
 
@@ -32,7 +32,8 @@ nav {
   justify-content: space-between;
   align-items: center;
   z-index: 2;
-  padding: 0 5em;
+  padding: 1em 5em;
+  top: 0;
 }
 
 nav > div {
@@ -40,7 +41,7 @@ nav > div {
 }
 
 .logo img {
-  width: 70px;
+  width: 250px;
 }
 
 .logo-main {
@@ -115,8 +116,8 @@ nav > div {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
 }
 
@@ -132,14 +133,14 @@ nav > div {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #fff;
-  padding: 10em 5em;
+  padding: 8em 1em;
 }
 
 .overlay,
@@ -150,7 +151,7 @@ nav > div {
 .menu-item,
 .menu-title,
 .search-bar {
-  flex: 1;
+  // flex: 1;
   width: 100%;
   opacity: 0;
 }
@@ -159,10 +160,15 @@ nav > div {
   display: flex;
   justify-content: center;
   align-items: center;
+  p {
+    text-transform: uppercase;
+    font-size: clamp(2rem, 2vw + 1rem, 2.5rem);
+  }
 }
 
 .menu-item {
   display: flex;
+  justify-content: center;
   padding: 1em;
   transition: 0.3s;
   cursor: pointer;
@@ -174,14 +180,17 @@ nav > div {
 }
 
 .menu-item-name {
-  flex: 3;
+  width: 100%;
+  p,
+  .item__sub__list {
+    font-size: clamp(1.2rem, 2vw + 1rem, 2rem);
+  }
+}
+
+.item-toggle {
   display: flex;
   justify-content: center;
-
-  p {
-    font-size: 1.5vw;
-    text-align: center;
-  }
+  gap: 1rem;
 }
 
 .menu-item-link {
@@ -194,6 +203,55 @@ nav > div {
 
 .menu-item-name.active .sub-menu {
   display: block;
+}
+
+.menu-item ul {
+  list-style-type: none;
+  margin: 1rem 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.menu-item li {
+  display: inline;
+  font-size: clamp(0.8rem, 1vw + 0.5rem, 1.5rem);
+}
+
+.part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-part1,
+.list-part2 {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/*********** List Toggle *************/
+#fullset-list {
+  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden; /* Assurez-vous que le contenu ne dépasse pas pendant l'animation */
+}
+
+#fullset-list.shown {
+  opacity: 1;
+  visibility: visible;
+  max-height: 500px; /* La hauteur maximale que le menu peut atteindre */
+  transition-delay: 0.3s;
+}
+
+#fullset-list.hidden {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
 }
 
 /********** SearchBar **********/
@@ -214,6 +272,7 @@ nav > div {
 
     i {
       color: white;
+      font-size: 2rem;
     }
   }
 
@@ -234,15 +293,17 @@ nav > div {
 
 .search-bar input[type="text"].expanded {
   width: 300px;
-  height: 50px;
+  height: 70px;
   padding: 1em;
   border: 1px solid #ddd;
   cursor: text;
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.3rem);
+  font-family: "Poppins", sans-serif;
 }
 
 .search-bar button {
   transition: border-radius 0.5s ease;
-  height: 50px;
+  height: 70px;
 }
 
 .search-bar button.expanded {

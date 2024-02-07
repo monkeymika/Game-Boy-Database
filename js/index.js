@@ -47,17 +47,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 })
 
+/***************************** Toggle Menu *********************************/
+
+function toggleMenu() {
+	var menu = document.getElementById('fullset-list');
+	if (menu.classList.contains('hidden')) {
+		menu.classList.remove('hidden');
+		menu.classList.add('shown');
+	} else {
+		menu.classList.remove('shown');
+		menu.classList.add('hidden');
+	}
+}
+
+// Fermer le menu si on clique en dehors
+window.onclick = function (event) {
+	if (!event.target.matches('.title-list')) {
+		var dropdowns = document.getElementsByClassName("shown");
+		for (var i = 0; i < dropdowns.length; i++) {
+			var openDropdown = dropdowns[i];
+			if (openDropdown.classList.contains('shown')) {
+				openDropdown.classList.remove('shown');
+				openDropdown.classList.add('hidden');
+			}
+		}
+	}
+}
 
 
-document.querySelectorAll('.menu-item-name').forEach(item => {
-	item.addEventListener('click', () => {
-		item.classList.toggle('active');
-	});
-});
 
+/********************* SearchBar animation on click ****************************/
 
-
-/* SearchBar animation on click */
 document.addEventListener('DOMContentLoaded', function () {
 	var searchInput = document.querySelector('.search-bar input[type="text"]');
 	var searchButton = document.querySelector('.search-bar button');
@@ -74,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-/*NavBar animaiton on scroll */
+/*NavBar animation on scroll */
 document.addEventListener('DOMContentLoaded', function () {
 	var nav = document.querySelector('nav');
 

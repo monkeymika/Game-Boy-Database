@@ -19,12 +19,12 @@
     <!-- NavBar-->
     <nav>
       <div class="logo">
-        <img src="./images/mascotte.png" alt="">
+        <img src="./images/logoGB-Database.png" alt="">
       </div>
 
-      <div class="logo-main">
+      <!-- <div class="logo-main">
         <img src="./images/text-logoGB_pink.png" alt="">
-      </div>
+      </div> -->
       <div class="toggle-btn">
         <button class="burger" onclick="this.classList.toggle('active')">
         </button>
@@ -44,7 +44,7 @@
 
     <div class="overlay-menu">
       <div class="menu-title">
-        <!-- <p>[menu]</p> -->
+        <p>menu</p>
       </div>
 
       <div class="search-bar">
@@ -54,41 +54,48 @@
 
       <div class="menu-item">
         <div class="menu-item-name">
-          <p>Fullsets 1/2</p>
-          <ul class="sub-menu">
-            <a href="../pages/fullset-ASI.html">
-              <li class="items__sub__list">ASI</li>
-            </a>
-            <a href="#">
-              <li class="items__sub__list">AUS</li>
-            </a>
-            <a href="#">
-              <li class="items__sub__list">CAN</li>
-            </a>
-            <a href="#">
-              <li class="items__sub__list">CHN</li>
-            </a>
-            <a href="#">
-              <li class="items__sub__list">ESP</li>
-            </a>
-            <a href="#">
-              <li class="items__sub__list">EUR</li>
-            </a>
-            <a href="#">
-              <li class="items__sub__list">FAH</li>
-            </a>
-            <a href="#">
-              <li class="items__sub__list">FRA</li>
-            </a>
-            <a href="#">
-              <li class="items__sub__list">FRG</li>
-            </a>
+          <div class="item-toggle" onclick="toggleMenu()">
+            <p class="title-list">Fullsets 1/2</p>
+            <i class="fa-solid fa-sort-down"></i>
+          </div>
+          <ul id="fullset-list" class="hidden part">
+            <div class="list-part1">
+              <a href="../pages/fullset-ASI.html">
+                <li class="items__sub__list">ASI</li>
+              </a>
+              <a href="#">
+                <li class="items__sub__list">AUS</li>
+              </a>
+              <a href="#">
+                <li class="items__sub__list">CAN</li>
+              </a>
+              <a href="#">
+                <li class="items__sub__list">CHN</li>
+              </a>
+              <a href="#">
+                <li class="items__sub__list">ESP</li>
+              </a>
+            </div>
+            <div class="list-part2">
+              <a href="#">
+                <li class="items__sub__list">EUR</li>
+              </a>
+              <a href="#">
+                <li class="items__sub__list">FAH</li>
+              </a>
+              <a href="#">
+                <li class="items__sub__list">FRA</li>
+              </a>
+              <a href="#">
+                <li class="items__sub__list">FRG</li>
+              </a>
+            </div>
           </ul>
         </div>
       </div>
-      <div class="menu-item">
+      <!-- <div class="menu-item">
         <div class="menu-item-name">
-          <p>Fullsets 2/2</p>
+          <p>Fullsets 2/2<i class="fa-solid fa-sort-down"></i></p>
         </div>
       </div>
       <div class="menu-item">
@@ -100,7 +107,7 @@
         <div class="menu-item-name">
           <p>About</p>
         </div>
-      </div>
+      </div> -->
 
     </div>
     <!-- Hero Section -->
@@ -108,14 +115,22 @@
     <div class="hero-section">
       <div class="hero-content">
         <h1>Welcome to <br> Game Boy Database</h1>
-        <h2>A site for All Collectors</h2>
+        <p class="italic-text">A site for All Collectors</p>
         <p>Initially launched by a collector, the site aims to reference all possible versions of each game. The
           project
           is community-based, currently primarily managed at the IT level by Guilh, Eegbor, RPGHCG, and Unexist.. We
           don't own everything. Do not hesitate to send us scans, photos, information on the email below .... We will
           be
-          happy to share them. Excellent visit.</p>
+          happy to share them. Excellent visit.
+        </p>
+        <div class="btn-hero-container">
+          <a href="" class="btn-hero">
+            See The Database
+          </a>
+
+        </div>
       </div>
+
     </div>
   </header>
 
@@ -562,7 +577,7 @@
       <div class="footer-wrapper">
         <div class="footer-widget">
           <a href="#">
-            <img src="./images/text-logoGB_pink.png" alt="logo footer" class="footer-logo">
+            <img src="./images/logoGBDatabase.png" alt="logo footer" class="footer-logo">
           </a>
           <p class="desc">
             Everywhere in the world

@@ -68,6 +68,20 @@
 }
 /************************* Small Mobile Screen ****************************/
 @media only screen and (max-width: 500px) {
+  //Nav
+  nav {
+    padding: 0.8rem;
+  }
+  //Hero Section
+  .hero-section {
+    h1 {
+      font-size: 8vw;
+    }
+
+    .hero-content {
+      margin-top: 80px;
+    }
+  }
   //Birthday Section
   .posts {
     display: flex;
@@ -90,13 +104,17 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      img {
+        margin: 1rem 0;
+      }
     }
   }
 
   //Comments Section
 
   .container-comments {
-    max-width: 250px;
+    max-width: 300px;
   }
 
   .container-data {

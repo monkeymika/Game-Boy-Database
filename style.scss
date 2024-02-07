@@ -8,6 +8,7 @@
 
 /*********************** Components ************************/
 @import "./sass/components/button.scss";
+@import "./sass/components/footer.scss";
 
 /*********************** Home ************************/
 @import "./sass/pages/home/hero-section.scss";
@@ -16,9 +17,12 @@
 @import "./sass/pages/home/database-highlight.scss";
 @import "./sass/pages/home/comments-section.scss";
 @import "./sass/pages/home/videos-section.scss";
+
+// Fullsets
+@import "./sass/pages/fullsets_ASI.scss";
+
 /*********************** Layouts ************************/
 @import "./sass/layouts/navBar.scss";
-@import "./sass/layouts/footer.scss";
 
 /*********************** Responsive ************************/
 @import "./sass/utils/responsive.scss";

@@ -3,12 +3,25 @@ footer {
   width: 100%;
   height: auto;
   padding-top: 80px;
-  background: $darkPurple-GB;
+  background: $grey-GB;
+
+  .desc {
+    font-weight: 900;
+  }
 
   .desc,
   a,
   .copyright-wrapper {
+    color: black;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .copyright-wrapper {
     color: white;
+    a {
+      color: $purple-GB;
+      font-weight: 900;
+    }
   }
 
   .footer-container {
@@ -32,7 +45,7 @@ footer {
     .footer-logo {
       margin-bottom: 30px;
       vertical-align: middle;
-      width: 300px;
+      width: 150px;
     }
 
     .footer-widget {
@@ -42,9 +55,9 @@ footer {
       }
 
       h3 {
-        color: white;
         margin: 10px 0 35px;
         font-weight: 600;
+        text-align: center;
       }
 
       a {
@@ -80,7 +93,7 @@ footer {
   }
   .copyright-wrapper {
     text-align: center;
-    background: #3a396b;
+    background: #777371;
     padding: 1rem;
   }
 }
