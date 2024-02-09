@@ -1,0 +1,40 @@
+.team-cards {
+  --auto-grid-min-size: 18rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--auto-grid-min-size), 1fr)
+  );
+  grid-gap: 3rem;
+  text-align: center;
+}
+
+.team-card {
+  border: 2px solid black;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .team-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  }
+
+  .team-detail {
+    text-align: center;
+
+    h3 {
+      margin-bottom: 8px;
+    }
+  }
+}

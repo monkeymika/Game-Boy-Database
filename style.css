@@ -53,9 +53,9 @@ h1 {
 
 h2 {
   font-family: "Press Start 2P", system-ui;
-  font-size: clamp(1.6rem, 2vw + 1rem, 1.8rem);
+  font-size: clamp(1.6rem, 2vw + 1rem, 2.1rem);
   text-align: center;
-  padding: 4rem 0.8rem;
+  padding: 2rem;
 }
 
 h3 {
@@ -69,12 +69,12 @@ h4 {
 }
 
 p {
-  font-size: clamp(1rem, 1vw + 0.5rem, 1.3rem);
+  font-size: clamp(0.9rem, 1vw + 0.5rem, 1.1rem);
   font-family: "Poppins", sans-serif;
 }
 
 .btn-hero {
-  font-size: clamp(0.5rem, 1vw + 0.5rem, 1rem);
+  font-size: clamp(0.5rem, 1vw + 0.5rem, 0.8rem);
 }
 
 /*********************** Components ************************/
@@ -82,8 +82,11 @@ footer {
   position: relative;
   width: 100%;
   height: auto;
-  padding-top: 80px;
+  padding-top: 30px;
   background: #c4bebb;
+}
+footer h3 {
+  font-family: "Poppins", sans-serif;
 }
 footer .desc {
   font-weight: 900;
@@ -100,6 +103,7 @@ footer .copyright-wrapper {
 footer .copyright-wrapper a {
   color: #9a2257;
   font-weight: 900;
+  cursor: pointer;
 }
 footer .footer-container {
   width: 100%;
@@ -107,6 +111,7 @@ footer .footer-container {
 footer .footer-container .footer-wrapper {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -138,11 +143,11 @@ footer .footer-container .footer-widget a {
 footer .footer-container .socials {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 footer .footer-container .socials a {
-  width: 44px;
-  height: 44px;
+  width: 35px;
+  height: 35px;
   margin-right: 10px;
   color: #fff;
   background: #9a2257;
@@ -165,14 +170,11 @@ footer .copyright-wrapper {
 
 /*********************** Home ************************/
 .hero-section {
-  background-image: linear-gradient(rgba(241, 241, 241, 0.67), rgba(255, 255, 255, 0.79)), url("../../../images/heroSection-CartridgesGB.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 60px;
 }
 .hero-section .italic-text {
   font-style: italic;
@@ -181,6 +183,9 @@ footer .copyright-wrapper {
   margin-bottom: 2rem;
   text-align: center;
 }
+.hero-section img {
+  max-width: 30%;
+}
 
 .hero-content {
   display: flex;
@@ -188,7 +193,7 @@ footer .copyright-wrapper {
   align-items: center;
   justify-content: center;
   max-width: 1000px;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .btn-hero-container {
@@ -303,7 +308,7 @@ footer .copyright-wrapper {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1300px;
   width: 100%;
   padding: 40px 0;
 }
@@ -361,7 +366,7 @@ footer .copyright-wrapper {
 }
 
 .swiper {
-  padding: 3rem 0 !important;
+  padding: 2rem 0 !important;
 }
 
 .swiper-navBtn {
@@ -416,7 +421,7 @@ footer .copyright-wrapper {
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   max-width: 750px;
-  margin: 1rem auto;
+  margin: 2rem auto;
   padding: 1rem;
 }
 .container-comments .game-about {
@@ -449,12 +454,394 @@ footer .copyright-wrapper {
   font-size: 12px;
 }
 
+.videos {
+  padding: 1rem;
+}
+
 .containerVideo {
   max-width: 1500px;
 }
 .containerVideo iframe {
   width: 100%;
   height: 200px;
+}
+
+.cards-container {
+  --auto-grid-min-size: 12rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+  grid-gap: 3rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-game {
+    text-align: center;
+    max-width: 150px;
+    margin: 0 auto;
+  }
+  .card-game img {
+    width: 100%;
+  }
+}
+.bloc__page {
+  margin-top: 9rem;
+}
+
+.container__twoBlocks {
+  display: flex;
+  margin: 2rem;
+  gap: 3rem;
+}
+.container__twoBlocks h2 {
+  padding: 1.5rem;
+  color: #494786;
+}
+
+/*********** Presentation du jeu ***********/
+.left__block {
+  border-radius: 15px;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--grey2);
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+.left__block .details-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left__block .game-img {
+  height: 200px; /* Hauteur fixe pour toutes les images */
+  width: 100%; /* Largeur automatique pour maintenir le ratio d'aspect */
+  object-fit: contain;
+}
+.left__block .swiper-button-prev:after,
+.left__block .swiper-button-next:after,
+.left__block .swiper-pagination-bullet-active {
+  color: #9a2257;
+}
+.left__block .swiper-pagination-bullet-active {
+  background: #9a2257;
+}
+.left__block li {
+  list-style-type: initial;
+  margin: 1.5rem;
+}
+
+.game__presentation__container,
+.game__info__container,
+.other__photos,
+.credit__pcb,
+.import,
+.cover__compare,
+.ingame__compare,
+.version__compare,
+.additional__info,
+.screenshots,
+.magazine__test,
+.credit__container,
+.pcb__container {
+  background: white;
+  margin: 2rem;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+.game__presentation__container h4,
+.game__info__container h4,
+.other__photos h4,
+.credit__pcb h4,
+.import h4,
+.cover__compare h4,
+.ingame__compare h4,
+.version__compare h4,
+.additional__info h4,
+.screenshots h4,
+.magazine__test h4,
+.credit__container h4,
+.pcb__container h4 {
+  border-radius: 12px 12px 0px 0px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.game__presentation__container {
+  text-align: center;
+  border-radius: 15px;
+}
+
+.fronbox__side__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  margin-top: 1rem;
+}
+
+.photo__frontbox {
+  width: 250px;
+}
+.photo__frontbox img {
+  width: 100%;
+}
+
+.photo__side {
+  display: flex;
+  gap: 2rem;
+  height: 100px;
+}
+.photo__side img {
+  width: 100%;
+}
+
+.game__description {
+  padding: 2rem;
+}
+
+@media screen and (max-width: 850px) {
+  .game__presentation__container {
+    text-align: center;
+  }
+  .fronbox__side__container {
+    display: inline-block;
+  }
+  .photo__frontbox {
+    width: 100%;
+  }
+}
+/*********** Presentation du jeu - Fin ***********/
+/******************************************************/
+/*********** Info et autres photos - Debut ***********/
+/****************************************************/
+.game__info__container {
+  border-radius: 15px;
+}
+
+.container__table {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  gap: 2.5rem;
+}
+
+.individual__info,
+.multiple__info {
+  text-align: center;
+}
+
+table.infoTable {
+  background-color: var(--grey2);
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+table.infoTable td {
+  border: 2px solid #aaaaaa;
+  padding: 8px 8px;
+}
+
+table.infoTable td:nth-child(even) {
+  background: white;
+}
+
+.container__normal__img,
+.container__side__img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.other__photos {
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.other__photos .container__others__image {
+  width: 180px;
+}
+.other__photos .container__others__image img {
+  width: 100%;
+  height: 200px;
+}
+.other__photos .container__others__image__side {
+  width: 60px;
+}
+.other__photos .container__others__image__side img {
+  width: 100%;
+  height: 200px;
+}
+.other__photos .container__others__image__top {
+  width: 180px;
+}
+.other__photos .container__others__image__top img {
+  width: 100%;
+  height: 50px;
+}
+
+@media screen and (max-width: 880px) {
+  .container__table {
+    display: block;
+  }
+  .multiple__info {
+    margin-top: 2rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  table.infoTable td {
+    padding: 3px 3px;
+    font-size: 12px;
+  }
+}
+/*********** Info et autres photos - Fin ***********/
+/******************************************************/
+/******************* Credit et pcb *******************/
+/****************************************************/
+/*********** Credit et pcb - Fin ***********/
+.import ul,
+.cover__compare ul,
+.ingame__compare ul,
+.version__compare ul,
+.additional__info ul,
+.screenshots ul,
+.magazine__test ul,
+.credit__container ul,
+.pcb__container ul {
+  padding: 2rem;
+}
+
+.container__screenshots {
+  padding: 2rem;
+}
+
+/******************************************************/
+/******************* autres bloc *******************/
+/****************************************************/
+.screenshots .container__screenshots {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.screenshots .container__screenshots .screenshots__image {
+  width: 180px;
+}
+.screenshots .container__screenshots .screenshots__image img {
+  width: 100%;
+  height: 200px;
+}
+
+/**************************************************/
+/************** Bloc de droite********************/
+/************************************************/
+.right__block {
+  border-radius: 15px;
+  width: 35%;
+  text-align: center;
+  background: var(--grey2);
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.timeline {
+  background: white;
+  border: 2px solid black;
+  border-radius: 15px;
+  margin: 2rem;
+}
+.timeline h4 {
+  border-radius: 12px 12px 0px 0px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.panel-heading {
+  padding: 2rem;
+}
+
+.add__btns {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+.add__btns i {
+  padding: 0.8rem;
+  border-radius: 0.375em;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.add__btns i:hover:hover {
+  transform: scale(1.05);
+  background: var(--button);
+}
+
+.container__comments {
+  text-align: center;
+}
+
+.text__zone {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  gap: 1rem;
+}
+.text__zone textarea {
+  background: white;
+}
+
+@media screen and (max-width: 680px) {
+  .container__twoBlocks {
+    display: block;
+  }
+  .left__block,
+  .right__block {
+    width: 100%;
+    text-align: center;
+  }
+}
+.team-cards {
+  --auto-grid-min-size: 18rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+  grid-gap: 3rem;
+  text-align: center;
+}
+
+.team-card {
+  border: 2px solid black;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.team-card .team-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.team-card img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+.team-card .team-detail {
+  text-align: center;
+}
+.team-card .team-detail h3 {
+  margin-bottom: 8px;
 }
 
 /*********************** Layouts ************************/
@@ -494,6 +881,7 @@ nav {
   z-index: 2;
   padding: 1em 5em;
   top: 0;
+  height: 100px;
 }
 
 nav > div {
@@ -769,6 +1157,9 @@ nav > div {
 /*********************** Responsive ************************/
 /************************* Tablette ****************************/
 @media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column-reverse;
+  }
   .posts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -792,6 +1183,15 @@ nav > div {
     width: 120px;
     height: 120px;
     margin-bottom: 1rem;
+  }
+  .container__twoBlocks {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .left__block,
+  .right__block {
+    width: 100%;
   }
 }
 /************************* Large Mobile Screen ****************************/
@@ -824,11 +1224,11 @@ nav > div {
   nav {
     padding: 0.8rem;
   }
-  .hero-section h1 {
-    font-size: 8vw;
+  .hero-section {
+    margin-top: 50px;
   }
-  .hero-section .hero-content {
-    margin-top: 80px;
+  .hero-section h1 {
+    font-size: 5vw;
   }
   .posts {
     display: flex;
@@ -859,6 +1259,13 @@ nav > div {
   .container-data .comments-img img {
     width: 50px;
     height: 50px;
+  }
+  .team-cards {
+    --auto-grid-min-size: 10rem;
+  }
+  .team-cards .team-card .team-image {
+    width: 80px;
+    height: 80px;
   }
 }
 

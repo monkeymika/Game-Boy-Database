@@ -1,16 +1,17 @@
 .hero-section {
-  background-image: linear-gradient(
-      rgb(241 241 241 / 67%),
-      rgb(255 255 255 / 79%)
-    ),
-    url("../../../images/heroSection-CartridgesGB.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  // background-image: linear-gradient(
+  //     rgb(241 241 241 / 67%),
+  //     rgb(255 255 255 / 79%)
+  //   ),
+  //   url("../../../images/heroSection-CartridgesGB.jpg");
+  // background-size: cover;
+  // background-position: center;
+  // background-repeat: no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 60px;
 
   .italic-text {
     font-style: italic;
@@ -18,6 +19,10 @@
     font-size: clamp(0.2rem, 1.5vw + 1rem, 1.1rem);
     margin-bottom: 2rem;
     text-align: center;
+  }
+
+  img {
+    max-width: 30%;
   }
 }
 
@@ -27,7 +32,7 @@
   align-items: center;
   justify-content: center;
   max-width: 1000px;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .btn-hero-container {

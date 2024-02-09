@@ -1,5 +1,9 @@
 /************************* Tablette ****************************/
 @media (max-width: 1024px) {
+  //Hero Section
+  .hero-section {
+    flex-direction: column-reverse;
+  }
   //Birthday Section
   .posts {
     display: grid;
@@ -31,6 +35,17 @@
         margin-bottom: 1rem;
       }
     }
+  }
+  //Game Details
+  .container__twoBlocks {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .left__block,
+  .right__block {
+    width: 100%;
   }
 }
 
@@ -75,12 +90,10 @@
   //Hero Section
   .hero-section {
     h1 {
-      font-size: 8vw;
+      font-size: 5vw;
     }
 
-    .hero-content {
-      margin-top: 80px;
-    }
+    margin-top: 50px;
   }
   //Birthday Section
   .posts {
@@ -124,6 +137,16 @@
       img {
         width: 50px;
         height: 50px;
+      }
+    }
+  }
+  //Page Team
+  .team-cards {
+    --auto-grid-min-size: 10rem;
+    .team-card {
+      .team-image {
+        width: 80px;
+        height: 80px;
       }
     }
   }

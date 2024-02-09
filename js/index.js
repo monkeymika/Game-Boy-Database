@@ -217,3 +217,38 @@ var swiperMostSeen = new Swiper(".videos .slide-container", {
 		},
 	},
 });
+// Initialize Swiper for Game Details
+var swiperMostSeen = new Swiper(".game-images-container .slide-container", {
+	// ... your configuration ...
+	slidesPerView: 4,
+	spaceBetween: 20,
+	sliderPerGroup: 4,
+	loop: true,
+	centerSlide: "true",
+	fade: "true",
+	grabCursor: "true",
+	pagination: {
+		el: ".swiper-pagination4",
+		clickable: true,
+		dynamicBullets: true,
+	},
+	navigation: {
+		nextEl: ".swiper-button-next4",
+		prevEl: ".swiper-button-prev4",
+	},
+
+	breakpoints: {
+		0: {
+			slidesPerView: 1,
+		},
+		520: {
+			slidesPerView: 2,
+		},
+		768: {
+			slidesPerView: 3,
+		},
+		1000: {
+			slidesPerView: 4,
+		},
+	},
+});
