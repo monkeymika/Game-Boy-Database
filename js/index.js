@@ -108,147 +108,83 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+// Fonction générique pour initialiser Swiper
+function initializeSwiper(containerSelector, paginationSuffix) {
+	return new Swiper(containerSelector, {
+		slidesPerView: 4,
+		spaceBetween: 20,
+		sliderPerGroup: 4,
+		loop: true,
+		centerSlide: "true",
+		fade: "true",
+		grabCursor: "true",
+		pagination: {
+			el: ".swiper-pagination" + paginationSuffix,
+			clickable: true,
+			dynamicBullets: true,
+		},
+		navigation: {
+			nextEl: ".swiper-button-next" + paginationSuffix,
+			prevEl: ".swiper-button-prev" + paginationSuffix,
+		},
+		breakpoints: {
+			0: { slidesPerView: 1 },
+			520: { slidesPerView: 2 },
+			768: { slidesPerView: 3 },
+			1000: { slidesPerView: 4 },
+		},
+	});
+}
+
+// Appels de la fonction pour chaque Swiper avec les sélecteurs et suffixes appropriés
+
+initializeSwiper(".last-game-added-section .slide-container", "1");
+
+initializeSwiper(".most-seen-on-database .slide-container", "2");
+
+initializeSwiper(".videos .slide-container", "3");
+
+initializeSwiper(".game-images-container .slide-container", "4");
+
+initializeSwiper(".game-ohter-img-container .slide-container", "5");
+
+initializeSwiper(".container__screenshots .slide-container", "6");
+
+initializeSwiper(".container-magazine-test .slide-container", "7");
 
 
-/* Initialize Swiper */
+// Modal au clic sur l'image
 
-var swiper = new Swiper(".last-game-added-section .slide-container", {
-	slidesPerView: 4,
-	spaceBetween: 20,
-	sliderPerGroup: 4,
-	loop: true,
-	centerSlide: "true",
-	fade: "true",
-	grabCursor: "true",
-	pagination: {
-		el: ".swiper-pagination1",
-		clickable: true,
-		dynamicBullets: true,
-	},
-	navigation: {
-		nextEl: ".swiper-button-next1",
-		prevEl: ".swiper-button-prev1",
-	},
+document.addEventListener('DOMContentLoaded', function () {
+	var modal = document.getElementById("modal");
+	var modalImg = document.getElementById("modalImg");
 
-	breakpoints: {
-		0: {
-			slidesPerView: 1,
-		},
-		520: {
-			slidesPerView: 2,
-		},
-		768: {
-			slidesPerView: 3,
-		},
-		1000: {
-			slidesPerView: 4,
-		},
-	},
+	document.querySelectorAll('.details-img-container').forEach(item => {
+		item.addEventListener('click', function () {
+			var img = this.getElementsByTagName("img")[0];
+			modal.style.display = "flex";
+			modalImg.src = img.src;
+			document.getElementById("caption").innerHTML = img.alt;
+		});
+	});
+
+	var closeModal = document.getElementById("closeModal");
+	closeModal.addEventListener('click', function () {
+		modal.style.display = "none";
+	});
+
+	// Logique de zoom
+	modalImg.addEventListener('click', function () {
+		if (this.classList.contains('zoomed')) {
+			this.classList.remove('zoomed');
+			this.style.transform = "scale(1)";
+			this.style.cursor = 'zoom-in';
+		} else {
+			this.classList.add('zoomed');
+			this.style.transform = "scale(2)"; // Ajustez la valeur de scale selon le niveau de zoom désiré
+			this.style.cursor = 'zoom-out';
+		}
+	});
 });
 
 
-// Initialize Swiper for Recommended Games
-var swiperMostSeen = new Swiper(".most-seen-on-database .slide-container", {
-	// ... your configuration ...
-	slidesPerView: 4,
-	spaceBetween: 20,
-	sliderPerGroup: 4,
-	loop: true,
-	centerSlide: "true",
-	fade: "true",
-	grabCursor: "true",
-	pagination: {
-		el: ".swiper-pagination2",
-		clickable: true,
-		dynamicBullets: true,
-	},
-	navigation: {
-		nextEl: ".swiper-button-next2",
-		prevEl: ".swiper-button-prev2",
-	},
-
-	breakpoints: {
-		0: {
-			slidesPerView: 1,
-		},
-		520: {
-			slidesPerView: 2,
-		},
-		768: {
-			slidesPerView: 3,
-		},
-		1000: {
-			slidesPerView: 4,
-		},
-	},
-});
-// Initialize Swiper for Some Videos
-var swiperMostSeen = new Swiper(".videos .slide-container", {
-	// ... your configuration ...
-	slidesPerView: 4,
-	spaceBetween: 20,
-	sliderPerGroup: 4,
-	loop: true,
-	centerSlide: "true",
-	fade: "true",
-	grabCursor: "true",
-	pagination: {
-		el: ".swiper-pagination3",
-		clickable: true,
-		dynamicBullets: true,
-	},
-	navigation: {
-		nextEl: ".swiper-button-next3",
-		prevEl: ".swiper-button-prev3",
-	},
-
-	breakpoints: {
-		0: {
-			slidesPerView: 1,
-		},
-		520: {
-			slidesPerView: 2,
-		},
-		768: {
-			slidesPerView: 3,
-		},
-		1000: {
-			slidesPerView: 4,
-		},
-	},
-});
-// Initialize Swiper for Game Details
-var swiperMostSeen = new Swiper(".game-images-container .slide-container", {
-	// ... your configuration ...
-	slidesPerView: 4,
-	spaceBetween: 20,
-	sliderPerGroup: 4,
-	loop: true,
-	centerSlide: "true",
-	fade: "true",
-	grabCursor: "true",
-	pagination: {
-		el: ".swiper-pagination4",
-		clickable: true,
-		dynamicBullets: true,
-	},
-	navigation: {
-		nextEl: ".swiper-button-next4",
-		prevEl: ".swiper-button-prev4",
-	},
-
-	breakpoints: {
-		0: {
-			slidesPerView: 1,
-		},
-		520: {
-			slidesPerView: 2,
-		},
-		768: {
-			slidesPerView: 3,
-		},
-		1000: {
-			slidesPerView: 4,
-		},
-	},
-});

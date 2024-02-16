@@ -7,9 +7,31 @@
   margin: 2rem;
   gap: 3rem;
 
-  h2 {
-    padding: 1.5rem;
-    color: $darkPurple-GB;
+  .special-title {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: "Press Start 2P", system-ui;
+    padding: 1rem;
+    font-size: clamp(0.8rem, 0.8rem + 0.4vw, 1rem);
+    line-height: 1.4;
+  }
+}
+
+.container-game-details-title {
+  background: $darkPurple-GB;
+  border-radius: 15px 15px 0 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+}
+
+.container-pixel-img {
+  width: 40px;
+  .pixel-img {
+    width: 100%;
   }
 }
 
@@ -22,13 +44,13 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background: var(--grey2);
   @include box-shadow;
 
   .details-img-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
 
   .game-img {
@@ -54,7 +76,6 @@
 }
 
 .game__presentation__container,
-.game__info__container,
 .other__photos,
 .credit__pcb,
 .import,
@@ -65,10 +86,11 @@
 .screenshots,
 .magazine__test,
 .credit__container,
-.pcb__container {
+.pcb__container,
+.timeline {
   background: white;
   margin: 2rem;
-  border: 2px solid black;
+  border: 2px solid $grey-GB;
   border-radius: 15px;
 
   h4 {
@@ -81,6 +103,10 @@
 .game__presentation__container {
   text-align: center;
   border-radius: 15px;
+}
+
+.game__info__container {
+  margin: 2rem;
 }
 
 .fronbox__side__container {
@@ -149,7 +175,6 @@
 }
 
 table.infoTable {
-  background-color: var(--grey2);
   width: 100%;
   text-align: left;
   border-collapse: collapse;
@@ -221,7 +246,7 @@ table.infoTable td:nth-child(even) {
 @media screen and (max-width: 700px) {
   table.infoTable td {
     padding: 3px 3px;
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
@@ -243,7 +268,7 @@ table.infoTable td:nth-child(even) {
 .credit__container,
 .pcb__container {
   ul {
-    padding: 2rem;
+    padding: 1rem;
   }
 }
 
@@ -280,13 +305,11 @@ table.infoTable td:nth-child(even) {
   border-radius: 15px;
   width: 35%;
   text-align: center;
-  background: var(--grey2);
   @include box-shadow;
 }
 
 .timeline {
   background: white;
-  border: 2px solid black;
   border-radius: 15px;
   margin: 2rem;
 
@@ -301,23 +324,31 @@ table.infoTable td:nth-child(even) {
   padding: 2rem;
 }
 
-.add__btns {
+.add-btn-container {
   display: flex;
   justify-content: center;
+}
+
+.add__btns {
   margin: 1rem;
+  background: $purple-GB;
+  color: white;
+  border-radius: 15px;
+  padding: 1rem;
+  width: 80%;
+  cursor: pointer;
+  font-size: clamp(0.5rem, 0.8438rem + 0.5vw, 0.8rem);
+
+  &:hover {
+    &:hover {
+      transform: scale(1.02);
+      transition: 0.3s;
+    }
+  }
 
   i {
-    padding: 0.8rem;
     border-radius: 0.375em;
     transition: 0.3s;
-    cursor: pointer;
-
-    &:hover {
-      &:hover {
-        transform: scale(1.05);
-        background: var(--button);
-      }
-    }
   }
 }
 
@@ -334,6 +365,19 @@ table.infoTable td:nth-child(even) {
   textarea {
     background: white;
   }
+}
+
+.textelist {
+  padding: 0.8rem;
+}
+
+hr {
+  border: none;
+  border-top: 3px double #333;
+  color: #333;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
 }
 
 //Responsive block right and left

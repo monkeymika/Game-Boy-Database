@@ -71,6 +71,10 @@
   padding: 0.8rem;
 }
 
+.swiper-pagination-bullet-active {
+  background: $purple-GB !important;
+}
+
 .swiper-button-next1::after,
 .swiper-button-prev1::after,
 .swiper-button-next2::after,

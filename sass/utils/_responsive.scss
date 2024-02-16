@@ -41,11 +41,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0.5rem;
+
+    .container__table {
+      flex-direction: column;
+    }
   }
 
   .left__block,
   .right__block {
     width: 100%;
+    box-shadow: none;
   }
 }
 

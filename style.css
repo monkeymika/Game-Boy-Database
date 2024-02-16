@@ -68,9 +68,13 @@ h4 {
   font-weight: 900;
 }
 
-p {
-  font-size: clamp(0.9rem, 1vw + 0.5rem, 1.1rem);
+p,
+ul,
+li,
+td {
+  font-size: clamp(1rem, 0.8438rem + 0.5vw, 1.125rem);
   font-family: "Poppins", sans-serif;
+  line-height: 1.4;
 }
 
 .btn-hero {
@@ -166,6 +170,60 @@ footer .copyright-wrapper {
   text-align: center;
   background: #777371;
   padding: 1rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-zoom-container {
+  overflow: hidden;
+  cursor: grab;
+}
+
+.modal-content {
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  transition: transform 0.25s ease;
+  cursor: zoom-in;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #9a2257;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1;
+  padding: 1rem;
+}
+
+.close:hover,
+.close:focus {
+  color: #9a2257;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /*********************** Home ************************/
@@ -391,6 +449,10 @@ footer .copyright-wrapper {
   padding: 0.8rem;
 }
 
+.swiper-pagination-bullet-active {
+  background: #9a2257 !important;
+}
+
 .swiper-button-next1::after,
 .swiper-button-prev1::after,
 .swiper-button-next2::after,
@@ -468,14 +530,29 @@ footer .copyright-wrapper {
 
 .cards-container {
   --auto-grid-min-size: 12rem;
-  padding: 2rem;
+  padding: 5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
   grid-gap: 3rem;
   text-align: center;
 }
 
-@media only screen and (max-width: 500px) {
+.card-info {
+  color: white;
+  padding: 1rem;
+}
+
+.card-game {
+  background: #494786;
+  cursor: pointer;
+  border-radius: 0 0 10px 10px;
+}
+.card-game:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+@media only screen and (max-width: 600px) {
   .cards-container {
     display: flex;
     flex-direction: column;
@@ -483,7 +560,7 @@ footer .copyright-wrapper {
   }
   .card-game {
     text-align: center;
-    max-width: 150px;
+    max-width: 200px;
     margin: 0 auto;
   }
   .card-game img {
@@ -499,9 +576,31 @@ footer .copyright-wrapper {
   margin: 2rem;
   gap: 3rem;
 }
-.container__twoBlocks h2 {
-  padding: 1.5rem;
-  color: #494786;
+.container__twoBlocks .special-title {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "Press Start 2P", system-ui;
+  padding: 1rem;
+  font-size: clamp(0.8rem, 0.8rem + 0.4vw, 1rem);
+  line-height: 1.4;
+}
+
+.container-game-details-title {
+  background: #494786;
+  border-radius: 15px 15px 0 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+}
+
+.container-pixel-img {
+  width: 40px;
+}
+.container-pixel-img .pixel-img {
+  width: 100%;
 }
 
 /*********** Presentation du jeu ***********/
@@ -511,7 +610,6 @@ footer .copyright-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background: var(--grey2);
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -519,6 +617,7 @@ footer .copyright-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .left__block .game-img {
   height: 200px; /* Hauteur fixe pour toutes les images */
@@ -539,7 +638,6 @@ footer .copyright-wrapper {
 }
 
 .game__presentation__container,
-.game__info__container,
 .other__photos,
 .credit__pcb,
 .import,
@@ -550,14 +648,14 @@ footer .copyright-wrapper {
 .screenshots,
 .magazine__test,
 .credit__container,
-.pcb__container {
+.pcb__container,
+.timeline {
   background: white;
   margin: 2rem;
-  border: 2px solid black;
+  border: 2px solid #c4bebb;
   border-radius: 15px;
 }
 .game__presentation__container h4,
-.game__info__container h4,
 .other__photos h4,
 .credit__pcb h4,
 .import h4,
@@ -568,7 +666,8 @@ footer .copyright-wrapper {
 .screenshots h4,
 .magazine__test h4,
 .credit__container h4,
-.pcb__container h4 {
+.pcb__container h4,
+.timeline h4 {
   border-radius: 12px 12px 0px 0px;
   padding: 1rem;
   text-align: center;
@@ -577,6 +676,10 @@ footer .copyright-wrapper {
 .game__presentation__container {
   text-align: center;
   border-radius: 15px;
+}
+
+.game__info__container {
+  margin: 2rem;
 }
 
 .fronbox__side__container {
@@ -639,7 +742,6 @@ footer .copyright-wrapper {
 }
 
 table.infoTable {
-  background-color: var(--grey2);
   width: 100%;
   text-align: left;
   border-collapse: collapse;
@@ -701,7 +803,7 @@ table.infoTable td:nth-child(even) {
 @media screen and (max-width: 700px) {
   table.infoTable td {
     padding: 3px 3px;
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 /*********** Info et autres photos - Fin ***********/
@@ -718,7 +820,7 @@ table.infoTable td:nth-child(even) {
 .magazine__test ul,
 .credit__container ul,
 .pcb__container ul {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .container__screenshots {
@@ -748,14 +850,12 @@ table.infoTable td:nth-child(even) {
   border-radius: 15px;
   width: 35%;
   text-align: center;
-  background: var(--grey2);
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .timeline {
   background: white;
-  border: 2px solid black;
   border-radius: 15px;
   margin: 2rem;
 }
@@ -769,20 +869,28 @@ table.infoTable td:nth-child(even) {
   padding: 2rem;
 }
 
-.add__btns {
+.add-btn-container {
   display: flex;
   justify-content: center;
+}
+
+.add__btns {
   margin: 1rem;
+  background: #9a2257;
+  color: white;
+  border-radius: 15px;
+  padding: 1rem;
+  width: 80%;
+  cursor: pointer;
+  font-size: clamp(0.5rem, 0.8438rem + 0.5vw, 0.8rem);
+}
+.add__btns:hover:hover {
+  transform: scale(1.02);
+  transition: 0.3s;
 }
 .add__btns i {
-  padding: 0.8rem;
   border-radius: 0.375em;
   transition: 0.3s;
-  cursor: pointer;
-}
-.add__btns i:hover:hover {
-  transform: scale(1.05);
-  background: var(--button);
 }
 
 .container__comments {
@@ -799,6 +907,19 @@ table.infoTable td:nth-child(even) {
   background: white;
 }
 
+.textelist {
+  padding: 0.8rem;
+}
+
+hr {
+  border: none;
+  border-top: 3px double #333;
+  color: #333;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+}
+
 @media screen and (max-width: 680px) {
   .container__twoBlocks {
     display: block;
@@ -809,26 +930,69 @@ table.infoTable td:nth-child(even) {
     text-align: center;
   }
 }
+.team-title {
+  margin-bottom: 8rem;
+}
+
 .team-cards {
-  --auto-grid-min-size: 18rem;
-  padding: 2rem;
+  --auto-grid-min-size: 25rem;
+  padding: 3rem 5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
-  grid-gap: 3rem;
+  grid-gap: 5rem;
   text-align: center;
 }
 
+.project-team-title {
+  text-align: center;
+  margin: 2rem;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1rem;
+  white-space: nowrap;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.subtitle::before {
+  left: 0;
+  transform: translate(-5%, -50%);
+}
+
+.subtitle::after {
+  right: 0;
+  transform: translate(5%, -50%);
+}
+
+.subtitle::before,
+.subtitle::after {
+  content: "";
+  height: 3px;
+  width: 150px;
+  background-color: #9a2257;
+  box-shadow: 0 6px 0 #494786;
+}
+
+.card-content-container {
+  padding: 1.5rem;
+}
+
 .team-card {
-  border: 2px solid black;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 .team-card .team-image {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   margin-bottom: 10px;
 }
@@ -842,6 +1006,27 @@ table.infoTable td:nth-child(even) {
 }
 .team-card .team-detail h3 {
   margin-bottom: 8px;
+}
+.team-card .team-socials {
+  background: #494786;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.team-card .team-socials a {
+  cursor: pointer;
+}
+.team-card .team-socials i {
+  font-size: 2rem;
+  color: white;
+}
+.team-card .team-socials i:hover {
+  scale: 1.05;
+  transition: 0.2s;
 }
 
 /*********************** Layouts ************************/
@@ -1188,10 +1373,15 @@ nav > div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0.5rem;
+  }
+  .container__twoBlocks .container__table {
+    flex-direction: column;
   }
   .left__block,
   .right__block {
     width: 100%;
+    box-shadow: none;
   }
 }
 /************************* Large Mobile Screen ****************************/

@@ -1,0 +1,53 @@
+.modal {
+  display: none; // Assurez-vous que c'est bien 'none' ici
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-zoom-container {
+  overflow: hidden; // Empêche l'image de déborder lors du zoom
+  cursor: grab; // Change le curseur pour indiquer qu'on peut saisir l'image
+}
+
+.modal-content {
+  display: block;
+  max-width: 90%; // Limite la largeur maximale pour ne pas dépasser les bords de la modale
+  max-height: 80vh; // Utilisez vh pour s'assurer que l'image ne dépasse pas la hauteur de l'écran
+  transition: transform 0.25s ease; // Pour une transition fluide lors du zoom
+  cursor: zoom-in; // Indique que l'image peut être zoomée
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid $purple-GB;
+  border-radius: 50%;
+  width: 50px; // Assurez-vous que la largeur est la même que la taille de la police
+  height: 50px; // La hauteur doit être la même que la largeur
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1; // Ajustement pour centrer verticalement la croix, si nécessaire
+  padding: 1rem;
+}
+
+.close:hover,
+.close:focus {
+  color: $purple-GB;
+  text-decoration: none;
+  cursor: pointer;
+}
