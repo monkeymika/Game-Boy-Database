@@ -1193,6 +1193,9 @@ nav > div {
   justify-content: center;
   gap: 1rem;
 }
+.item-toggle i {
+  font-size: 2rem;
+}
 
 .menu-item-link {
   text-align: right;
@@ -1230,6 +1233,10 @@ nav > div {
 .list-part2 {
   display: flex;
   gap: 1.5rem;
+}
+
+.title-list {
+  text-transform: uppercase;
 }
 
 /*********** List Toggle *************/
