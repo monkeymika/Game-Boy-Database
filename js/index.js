@@ -152,12 +152,16 @@ initializeSwiper(".container__screenshots .slide-container", "6");
 
 initializeSwiper(".container-magazine-test .slide-container", "7");
 
+initializeSwiper(".other-versions-container .slide-container", "8");
+
 
 // Modal au clic sur l'image
 
 document.addEventListener('DOMContentLoaded', function () {
 	var modal = document.getElementById("modal");
 	var modalImg = document.getElementById("modalImg");
+	var isZoomed = false;
+	var startX, startY, moveX = 0, moveY = 0;
 
 	document.querySelectorAll('.details-img-container').forEach(item => {
 		item.addEventListener('click', function () {
@@ -165,6 +169,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			modal.style.display = "flex";
 			modalImg.src = img.src;
 			document.getElementById("caption").innerHTML = img.alt;
+			// Réinitialiser les transformations et les variables de déplacement
+			isZoomed = false;
+			modalImg.style.transform = "scale(1)";
+			modalImg.style.cursor = 'zoom-in';
+			moveX = 0;
+			moveY = 0;
 		});
 	});
 
@@ -173,18 +183,37 @@ document.addEventListener('DOMContentLoaded', function () {
 		modal.style.display = "none";
 	});
 
-	// Logique de zoom
-	modalImg.addEventListener('click', function () {
-		if (this.classList.contains('zoomed')) {
-			this.classList.remove('zoomed');
+	modalImg.addEventListener('click', function (e) {
+		if (isZoomed) {
 			this.style.transform = "scale(1)";
 			this.style.cursor = 'zoom-in';
+			isZoomed = false;
 		} else {
-			this.classList.add('zoomed');
-			this.style.transform = "scale(2)"; // Ajustez la valeur de scale selon le niveau de zoom désiré
-			this.style.cursor = 'zoom-out';
+			this.style.transform = "scale(2)";
+			this.style.cursor = 'move';
+			isZoomed = true;
+			// Préparer pour le déplacement
+			startX = e.clientX;
+			startY = e.clientY;
 		}
 	});
+
+	modalImg.addEventListener('mousemove', function (e) {
+		if (isZoomed) {
+			var diffX = e.clientX - startX;
+			var diffY = e.clientY - startY;
+			// Appliquer le déplacement avec une certaine limite pour éviter de sortir de l'image
+			moveX += diffX;
+			moveY += diffY;
+			this.style.transform = `scale(2) translate(${moveX}px, ${moveY}px)`;
+			// Réinitialiser les points de départ pour le prochain mouvement
+			startX = e.clientX;
+			startY = e.clientY;
+		}
+	});
+
+	// Ajouter ici des gestionnaires pour touchmove si nécessaire
 });
+
 
 

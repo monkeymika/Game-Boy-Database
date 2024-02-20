@@ -156,4 +156,35 @@
       }
     }
   }
+
+  //page game details
+  .game__presentation__container,
+  .other__photos,
+  .credit__pcb,
+  .import,
+  .cover__compare,
+  .ingame__compare,
+  .version__compare,
+  .additional__info,
+  .screenshots,
+  .magazine__test,
+  .credit__container,
+  .pcb__container,
+  .timeline,
+  .other-versions,
+  .game__info__container {
+    margin: 0.8rem;
+  }
+}
+
+// xxtra small
+
+@media only screen and (max-width: 350px) {
+  .container-game-details-title {
+    flex-direction: column;
+
+    h3 {
+      font-size: 4vw !important;
+    }
+  }
 }

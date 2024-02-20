@@ -59,7 +59,7 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(1.2rem, 2vw + 1rem, 1.6rem);
+  font-size: clamp(1rem, 2vw + 1rem, 1.6rem);
   font-weight: 900;
 }
 
@@ -574,7 +574,7 @@ footer .copyright-wrapper {
 .container__twoBlocks {
   display: flex;
   margin: 2rem;
-  gap: 3rem;
+  gap: 2rem;
 }
 .container__twoBlocks .special-title {
   color: white;
@@ -588,7 +588,7 @@ footer .copyright-wrapper {
 
 .container-game-details-title {
   background: #494786;
-  border-radius: 15px 15px 0 0;
+  border-radius: 10px 10px 0 0;
   text-align: center;
   display: flex;
   align-items: center;
@@ -606,12 +606,10 @@ footer .copyright-wrapper {
 /*********** Presentation du jeu ***********/
 .left__block {
   border-radius: 15px;
-  width: 65%;
+  width: 70%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  background: white;
 }
 .left__block .details-img-container {
   display: flex;
@@ -649,28 +647,20 @@ footer .copyright-wrapper {
 .magazine__test,
 .credit__container,
 .pcb__container,
-.timeline {
+.timeline,
+.other-versions {
   background: white;
   margin: 2rem;
   border: 2px solid #c4bebb;
   border-radius: 15px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
-.game__presentation__container h4,
-.other__photos h4,
-.credit__pcb h4,
-.import h4,
-.cover__compare h4,
-.ingame__compare h4,
-.version__compare h4,
-.additional__info h4,
-.screenshots h4,
-.magazine__test h4,
-.credit__container h4,
-.pcb__container h4,
-.timeline h4 {
-  border-radius: 12px 12px 0px 0px;
-  padding: 1rem;
-  text-align: center;
+
+.infoTable,
+.individual__info {
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .game__presentation__container {
@@ -680,30 +670,6 @@ footer .copyright-wrapper {
 
 .game__info__container {
   margin: 2rem;
-}
-
-.fronbox__side__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4rem;
-  margin-top: 1rem;
-}
-
-.photo__frontbox {
-  width: 250px;
-}
-.photo__frontbox img {
-  width: 100%;
-}
-
-.photo__side {
-  display: flex;
-  gap: 2rem;
-  height: 100px;
-}
-.photo__side img {
-  width: 100%;
 }
 
 .game__description {
@@ -732,7 +698,6 @@ footer .copyright-wrapper {
 .container__table {
   display: flex;
   justify-content: space-around;
-  padding: 1rem;
   gap: 2.5rem;
 }
 
@@ -768,7 +733,6 @@ table.infoTable td:nth-child(even) {
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 .other__photos .container__others__image {
   width: 180px;
@@ -823,10 +787,6 @@ table.infoTable td:nth-child(even) {
   padding: 1rem;
 }
 
-.container__screenshots {
-  padding: 2rem;
-}
-
 /******************************************************/
 /******************* autres bloc *******************/
 /****************************************************/
@@ -848,10 +808,23 @@ table.infoTable td:nth-child(even) {
 /************************************************/
 .right__block {
   border-radius: 15px;
-  width: 35%;
+  width: 30%;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  background: white;
+}
+
+.other-versions-container {
+  max-width: 200px;
+  margin: 2rem auto;
+  background: #c4bebb;
+  border-radius: 0 0 10px 10px;
+}
+.other-versions-container a {
+  cursor: pointer;
+}
+.other-versions-container .other-versions-details {
+  padding: 0.8rem;
+  font-weight: 600;
 }
 
 .timeline {
@@ -880,7 +853,6 @@ table.infoTable td:nth-child(even) {
   color: white;
   border-radius: 15px;
   padding: 1rem;
-  width: 80%;
   cursor: pointer;
   font-size: clamp(0.5rem, 0.8438rem + 0.5vw, 0.8rem);
 }
@@ -921,9 +893,6 @@ hr {
 }
 
 @media screen and (max-width: 680px) {
-  .container__twoBlocks {
-    display: block;
-  }
   .left__block,
   .right__block {
     width: 100%;
@@ -1456,6 +1425,31 @@ nav > div {
   .team-cards .team-card .team-image {
     width: 80px;
     height: 80px;
+  }
+  .game__presentation__container,
+  .other__photos,
+  .credit__pcb,
+  .import,
+  .cover__compare,
+  .ingame__compare,
+  .version__compare,
+  .additional__info,
+  .screenshots,
+  .magazine__test,
+  .credit__container,
+  .pcb__container,
+  .timeline,
+  .other-versions,
+  .game__info__container {
+    margin: 0.8rem;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .container-game-details-title {
+    flex-direction: column;
+  }
+  .container-game-details-title h3 {
+    font-size: 4vw !important;
   }
 }
 
