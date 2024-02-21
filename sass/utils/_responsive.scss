@@ -86,6 +86,11 @@
   .comments-content {
     text-align: center;
   }
+
+  //nav
+  nav {
+    padding: 1em 2em;
+  }
 }
 /************************* Small Mobile Screen ****************************/
 @media only screen and (max-width: 500px) {
@@ -158,6 +163,7 @@
   }
 
   //page game details
+
   .game__presentation__container,
   .other__photos,
   .credit__pcb,
@@ -175,16 +181,34 @@
   .game__info__container {
     margin: 0.8rem;
   }
+
+  //Game boy screen
+  .container-gameboy {
+    h1 {
+      font-size: 3vw;
+    }
+  }
+
+  .game-details-header {
+    max-width: 350px;
+  }
+  .screen .screen-content {
+    height: 100px;
+  }
+
+  .add__btns {
+    font-size: 2vw;
+  }
 }
 
-// xxtra small
+// xxtra small Device
 
 @media only screen and (max-width: 350px) {
   .container-game-details-title {
     flex-direction: column;
 
     h3 {
-      font-size: 4vw !important;
+      font-size: 3.5vw !important;
     }
   }
 }

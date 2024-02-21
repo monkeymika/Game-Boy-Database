@@ -8,14 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
 	const timeline = gsap.timeline({
 		paused: true,
 		onStart: () => {
-			// Définir le z-index à 0 quand l'animation commence
-			overlay.style.zIndex = '0';
-			overlayMenu.style.zIndex = '0';
+			// Définir le z-index à 1000 quand l'animation commence pour s'assurer que l'overlay est visible
+			overlay.style.zIndex = '1000';
+			overlayMenu.style.zIndex = '1000';
 		},
 		onReverseComplete: () => {
-			// Remettre le z-index à -1 quand l'animation est inversée et complète
-			overlay.style.zIndex = '-1';
-			overlayMenu.style.zIndex = '-1';
+			// Remettre le z-index à une valeur neutre quand l'animation est inversée et complète
+			// Ici, on peut mettre un z-index qui assure que l'overlay ne couvre pas inutilement d'autres éléments
+			// mais reste au-dessus de contenu de base si nécessaire. 0 est une valeur commune pour cela.
+			overlay.style.zIndex = '0';
+			overlayMenu.style.zIndex = '0';
 		}
 	});
 
@@ -27,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	timeline.to(
-		".menu-title, .menu-item,.search-bar",
+		".menu-title, .menu-item, .search-bar",
 		{
 			duration: 0.3,
 			opacity: 1,
@@ -45,34 +47,57 @@ document.addEventListener("DOMContentLoaded", function () {
 		isOpen = !isOpen
 	});
 
-})
+});
+
 
 /***************************** Toggle Menu *********************************/
 
-function toggleMenu() {
-	var menu = document.getElementById('fullset-list');
-	if (menu.classList.contains('hidden')) {
-		menu.classList.remove('hidden');
-		menu.classList.add('shown');
-	} else {
-		menu.classList.remove('shown');
-		menu.classList.add('hidden');
-	}
-}
+// function toggleMenu() {
+// 	var menu = document.getElementById('fullset-list');
+// 	if (menu.classList.contains('hidden')) {
+// 		menu.classList.remove('hidden');
+// 		menu.classList.add('shown');
+// 	} else {
+// 		menu.classList.remove('shown');
+// 		menu.classList.add('hidden');
+// 	}
+// }
 
-// Fermer le menu si on clique en dehors
-window.onclick = function (event) {
-	if (!event.target.matches('.title-list')) {
-		var dropdowns = document.getElementsByClassName("shown");
-		for (var i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if (openDropdown.classList.contains('shown')) {
-				openDropdown.classList.remove('shown');
-				openDropdown.classList.add('hidden');
-			}
-		}
-	}
-}
+// // Fermer le menu si on clique en dehors
+// window.onclick = function (event) {
+// 	if (!event.target.matches('.title-list')) {
+// 		var dropdowns = document.getElementsByClassName("shown");
+// 		for (var i = 0; i < dropdowns.length; i++) {
+// 			var openDropdown = dropdowns[i];
+// 			if (openDropdown.classList.contains('shown')) {
+// 				openDropdown.classList.remove('shown');
+// 				openDropdown.classList.add('hidden');
+// 			}
+// 		}
+// 	}
+// }
+
+document.addEventListener('DOMContentLoaded', function () {
+	var toggleTitles = document.querySelectorAll('.toggle-title');
+
+	toggleTitles.forEach(function (title) {
+		title.addEventListener('click', function () {
+			// Fermez tous les contenus ouverts
+			document.querySelectorAll('.toggle-content').forEach(function (content) {
+				if (content !== title.nextElementSibling) {
+					content.classList.add('hidden');
+				}
+			});
+
+			// Basculez l'état visible/caché du contenu lié au titre cliqué
+			var contentToShow = title.nextElementSibling;
+			contentToShow.classList.toggle('hidden');
+		});
+	});
+});
+
+
+
 
 
 

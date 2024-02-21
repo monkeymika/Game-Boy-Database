@@ -1,8 +1,4 @@
 /* Navbar scroll animation*/
-nav {
-  transition: background-color 0.5s ease;
-}
-
 nav.scrolled {
   background-color: $darkPurple-GB;
   height: 90px;
@@ -31,10 +27,11 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 2;
+  z-index: 9999;
   padding: 1em 5em;
   top: 0;
   height: 100px;
+  transition: background-color 0.5s ease;
 }
 
 nav > div {
@@ -65,7 +62,7 @@ nav > div {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5em 2em;
+  padding: 1em 1.5em;
   background: rgba(155, 155, 155, 0.25);
   border-radius: 0.25em;
   outline: none;
@@ -112,6 +109,8 @@ nav > div {
 .burger:hover {
   background: rgba(255, 255, 255, 1);
 }
+
+/********* Menu overlay **************/
 
 .overlay {
   position: fixed;
@@ -163,16 +162,21 @@ nav > div {
   align-items: center;
   p {
     text-transform: uppercase;
-    font-size: clamp(2rem, 2vw + 1rem, 2.5rem);
+    font-size: clamp(1rem, 2vw + 1rem, 1.5rem);
   }
 }
 
 .menu-item {
   display: flex;
   justify-content: center;
-  padding: 1em;
+  padding: 0.4em;
   transition: 0.3s;
   cursor: pointer;
+  margin-top: 2rem;
+}
+
+.hidden {
+  display: none;
 }
 
 .menu-item-year,
@@ -181,10 +185,9 @@ nav > div {
 }
 
 .menu-item-name {
-  width: 100%;
   p,
   .item__sub__list {
-    font-size: clamp(1.2rem, 2vw + 1rem, 2rem);
+    font-size: clamp(1rem, 2vw + 1rem, 1.1rem);
   }
 }
 
@@ -192,9 +195,8 @@ nav > div {
   display: flex;
   justify-content: center;
   gap: 1rem;
-
   i {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -214,14 +216,12 @@ nav > div {
   list-style-type: none;
   margin: 1rem 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
   gap: 15px;
 }
 
 .menu-item li {
   display: inline;
-  font-size: clamp(0.8rem, 1vw + 0.5rem, 1.5rem);
+  font-size: clamp(0.7rem, 1vw + 0.5rem, 1rem);
 }
 
 .part {
@@ -233,7 +233,9 @@ nav > div {
 .list-part1,
 .list-part2 {
   display: flex;
+  justify-content: center;
   gap: 1.5rem;
+  margin-top: 1rem;
 }
 
 .title-list {
@@ -241,27 +243,6 @@ nav > div {
 }
 
 /*********** List Toggle *************/
-#fullset-list {
-  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
-  max-height: 0;
-  opacity: 0;
-  visibility: hidden;
-  overflow: hidden; /* Assurez-vous que le contenu ne dépasse pas pendant l'animation */
-}
-
-#fullset-list.shown {
-  opacity: 1;
-  visibility: visible;
-  max-height: 500px; /* La hauteur maximale que le menu peut atteindre */
-  transition-delay: 0.3s;
-}
-
-#fullset-list.hidden {
-  opacity: 0;
-  visibility: hidden;
-  max-height: 0;
-  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
-}
 
 /********** SearchBar **********/
 .search-bar {
@@ -281,7 +262,7 @@ nav > div {
 
     i {
       color: white;
-      font-size: 2rem;
+      font-size: 1rem;
     }
   }
 
@@ -302,7 +283,7 @@ nav > div {
 
 .search-bar input[type="text"].expanded {
   width: 300px;
-  height: 70px;
+  height: 50px;
   padding: 1em;
   border: 1px solid #ddd;
   cursor: text;
@@ -312,7 +293,7 @@ nav > div {
 
 .search-bar button {
   transition: border-radius 0.5s ease;
-  height: 70px;
+  height: 50px;
 }
 
 .search-bar button.expanded {

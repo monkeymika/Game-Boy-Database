@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*********************** Utils ************************/
 /******************** Colors ***********************/
 /*********************** Base ************************/
@@ -567,10 +566,113 @@ footer .copyright-wrapper {
     width: 100%;
   }
 }
-.bloc__page {
-  margin-top: 9rem;
+.game-details-header {
+  max-width: 450px;
+  margin: 0 auto;
+}
+.game-details-header .title-game-details {
+  background: white;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+.container-gameboy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #7f8a9e;
+  border-radius: 0 0 45px 0;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  margin: 1rem;
+}
+.container-gameboy h1 {
+  font-size: clamp(0.8rem, 2vw + 1rem, 1rem);
+  font-weight: 900;
+}
+
+.add-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.add__btns {
+  margin: 1rem;
+  background: #9a2257;
+  color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: clamp(0.4rem, 0.8438rem + 0.5vw, 0.6rem);
+}
+.add__btns:hover:hover {
+  transform: scale(1.02);
+  transition: 0.3s;
+}
+.add__btns i {
+  border-radius: 0.375em;
+  transition: 0.3s;
+}
+
+/** start gameboy here **/
+.screen {
+  margin: 0 auto;
+  border-bottom-right-radius: 75px;
+}
+.screen .screen-content {
+  margin-top: 30px;
+  background: #84d07d;
+  height: 200px;
+  font-family: "Early Gameboy";
+  color: #257b38;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.screen .screen-content .message-content {
+  width: 100%;
+  padding: 20px;
+}
+.screen .screen-content .message {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  animation: slide-down 1s linear;
+}
+.screen .screen-content .message .event-text {
+  color: black;
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes scroll-text {
+  0% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+}
 .container__twoBlocks {
   display: flex;
   margin: 2rem;
@@ -609,7 +711,6 @@ footer .copyright-wrapper {
   width: 70%;
   display: flex;
   flex-direction: column;
-  background: white;
 }
 .left__block .details-img-container {
   display: flex;
@@ -661,6 +762,10 @@ footer .copyright-wrapper {
 .individual__info {
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+table.infoTable td {
+  background: white;
 }
 
 .game__presentation__container {
@@ -810,7 +915,6 @@ table.infoTable td:nth-child(even) {
   border-radius: 15px;
   width: 30%;
   text-align: center;
-  background: white;
 }
 
 .other-versions-container {
@@ -840,29 +944,6 @@ table.infoTable td:nth-child(even) {
 
 .panel-heading {
   padding: 2rem;
-}
-
-.add-btn-container {
-  display: flex;
-  justify-content: center;
-}
-
-.add__btns {
-  margin: 1rem;
-  background: #9a2257;
-  color: white;
-  border-radius: 15px;
-  padding: 1rem;
-  cursor: pointer;
-  font-size: clamp(0.5rem, 0.8438rem + 0.5vw, 0.8rem);
-}
-.add__btns:hover:hover {
-  transform: scale(1.02);
-  transition: 0.3s;
-}
-.add__btns i {
-  border-radius: 0.375em;
-  transition: 0.3s;
 }
 
 .container__comments {
@@ -1000,10 +1081,6 @@ hr {
 
 /*********************** Layouts ************************/
 /* Navbar scroll animation*/
-nav {
-  transition: background-color 0.5s ease;
-}
-
 nav.scrolled {
   background-color: #494786;
   height: 90px;
@@ -1032,10 +1109,11 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 2;
+  z-index: 9999;
   padding: 1em 5em;
   top: 0;
   height: 100px;
+  transition: background-color 0.5s ease;
 }
 
 nav > div {
@@ -1066,7 +1144,7 @@ nav > div {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5em 2em;
+  padding: 1em 1.5em;
   background: rgba(155, 155, 155, 0.25);
   border-radius: 0.25em;
   outline: none;
@@ -1114,6 +1192,7 @@ nav > div {
   background: rgb(255, 255, 255);
 }
 
+/********* Menu overlay **************/
 .overlay {
   position: fixed;
   top: 0;
@@ -1164,15 +1243,20 @@ nav > div {
 }
 .menu-title p {
   text-transform: uppercase;
-  font-size: clamp(2rem, 2vw + 1rem, 2.5rem);
+  font-size: clamp(1rem, 2vw + 1rem, 1.5rem);
 }
 
 .menu-item {
   display: flex;
   justify-content: center;
-  padding: 1em;
+  padding: 0.4em;
   transition: 0.3s;
   cursor: pointer;
+  margin-top: 2rem;
+}
+
+.hidden {
+  display: none;
 }
 
 .menu-item-year,
@@ -1180,12 +1264,9 @@ nav > div {
   flex: 1;
 }
 
-.menu-item-name {
-  width: 100%;
-}
 .menu-item-name p,
 .menu-item-name .item__sub__list {
-  font-size: clamp(1.2rem, 2vw + 1rem, 2rem);
+  font-size: clamp(1rem, 2vw + 1rem, 1.1rem);
 }
 
 .item-toggle {
@@ -1194,7 +1275,7 @@ nav > div {
   gap: 1rem;
 }
 .item-toggle i {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .menu-item-link {
@@ -1213,14 +1294,12 @@ nav > div {
   list-style-type: none;
   margin: 1rem 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
   gap: 15px;
 }
 
 .menu-item li {
   display: inline;
-  font-size: clamp(0.8rem, 1vw + 0.5rem, 1.5rem);
+  font-size: clamp(0.7rem, 1vw + 0.5rem, 1rem);
 }
 
 .part {
@@ -1232,7 +1311,9 @@ nav > div {
 .list-part1,
 .list-part2 {
   display: flex;
+  justify-content: center;
   gap: 1.5rem;
+  margin-top: 1rem;
 }
 
 .title-list {
@@ -1240,28 +1321,6 @@ nav > div {
 }
 
 /*********** List Toggle *************/
-#fullset-list {
-  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
-  max-height: 0;
-  opacity: 0;
-  visibility: hidden;
-  overflow: hidden; /* Assurez-vous que le contenu ne dépasse pas pendant l'animation */
-}
-
-#fullset-list.shown {
-  opacity: 1;
-  visibility: visible;
-  max-height: 500px; /* La hauteur maximale que le menu peut atteindre */
-  transition-delay: 0.3s;
-}
-
-#fullset-list.hidden {
-  opacity: 0;
-  visibility: hidden;
-  max-height: 0;
-  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
-}
-
 /********** SearchBar **********/
 .search-bar {
   display: flex;
@@ -1280,7 +1339,7 @@ nav > div {
 }
 .search-bar button i {
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 .search-bar input,
 .search-bar button {
@@ -1298,7 +1357,7 @@ nav > div {
 
 .search-bar input[type=text].expanded {
   width: 300px;
-  height: 70px;
+  height: 50px;
   padding: 1em;
   border: 1px solid #ddd;
   cursor: text;
@@ -1308,7 +1367,7 @@ nav > div {
 
 .search-bar button {
   transition: border-radius 0.5s ease;
-  height: 70px;
+  height: 50px;
 }
 
 .search-bar button.expanded {
@@ -1384,6 +1443,9 @@ nav > div {
   .comments-content {
     text-align: center;
   }
+  nav {
+    padding: 1em 2em;
+  }
 }
 /************************* Small Mobile Screen ****************************/
 @media only screen and (max-width: 500px) {
@@ -1450,13 +1512,25 @@ nav > div {
   .game__info__container {
     margin: 0.8rem;
   }
+  .container-gameboy h1 {
+    font-size: 3vw;
+  }
+  .game-details-header {
+    max-width: 350px;
+  }
+  .screen .screen-content {
+    height: 100px;
+  }
+  .add__btns {
+    font-size: 2vw;
+  }
 }
 @media only screen and (max-width: 350px) {
   .container-game-details-title {
     flex-direction: column;
   }
   .container-game-details-title h3 {
-    font-size: 4vw !important;
+    font-size: 3.5vw !important;
   }
 }
 
