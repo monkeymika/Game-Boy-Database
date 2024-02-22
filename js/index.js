@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			modal.style.display = "flex";
 			modalImg.src = img.src;
 			document.getElementById("caption").innerHTML = img.alt;
-			// Réinitialiser les transformations et les variables de déplacement
+			// Réinitialise les transformations et les variables de déplacement
 			isZoomed = false;
 			modalImg.style.transform = "scale(1)";
 			modalImg.style.cursor = 'zoom-in';
@@ -227,17 +227,17 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (isZoomed) {
 			var diffX = e.clientX - startX;
 			var diffY = e.clientY - startY;
-			// Appliquer le déplacement avec une certaine limite pour éviter de sortir de l'image
+			// Applique le déplacement avec une certaine limite pour éviter de sortir de l'image
 			moveX += diffX;
 			moveY += diffY;
 			this.style.transform = `scale(2) translate(${moveX}px, ${moveY}px)`;
-			// Réinitialiser les points de départ pour le prochain mouvement
+			// Réinitialise les points de départ pour le prochain mouvement
 			startX = e.clientX;
 			startY = e.clientY;
 		}
 	});
 
-	// Ajouter ici des gestionnaires pour touchmove si nécessaire
+
 });
 
 

@@ -35,9 +35,13 @@ textarea {
   white-space: revert;
 }
 
-// body {
-//   background-image: url("../../images/testBackgroundGB.gif");
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position: left;
-// }
+body {
+  background-image: linear-gradient(
+      rgb(241 241 241 / 90%),
+      rgb(255 255 255 / 80%)
+    ),
+    url(../../images/testBackgroundGB.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+}
