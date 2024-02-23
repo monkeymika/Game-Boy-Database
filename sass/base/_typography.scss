@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 h1 {
   font-size: clamp(2rem, 2vw + 1rem, 3.5rem);
@@ -13,8 +13,10 @@ h1 {
 }
 
 h2 {
-  font-family: "Press Start 2P", system-ui;
-  font-size: clamp(1.6rem, 2vw + 1rem, 2.1rem);
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(1.125rem, 2.5vw + 1rem, 2.25rem);
   text-align: center;
   padding: 2rem;
 }
@@ -34,10 +36,25 @@ ul,
 li,
 td {
   font-size: clamp(1rem, 0.8438rem + 0.5vw, 1.125rem);
-  font-family: "Poppins", sans-serif;
+  font-family: "Lato", sans-serif;
   line-height: 1.4;
 }
 
 .btn-hero {
   font-size: clamp(0.5rem, 1vw + 0.5rem, 0.8rem);
+}
+
+@media only screen and (max-width: 500px) {
+  h2 {
+    font-size: 4vw;
+  }
+
+  h3 {
+    font-size: 3.8vw;
+  }
+
+  p,
+  a {
+    font-size: 3.2vw;
+  }
 }

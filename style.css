@@ -1,10 +1,39 @@
 /*********************** Utils ************************/
 /******************** Colors ***********************/
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+.doubleLines {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1rem;
+  white-space: nowrap;
+  position: relative;
+  top: 50%;
+}
+
+.doubleLines::before {
+  left: 0;
+  transform: translate(-5%, -50%);
+}
+
+.doubleLines::after {
+  right: 0;
+  transform: translate(5%, -50%);
+}
+
+.doubleLines::before,
+.doubleLines::after {
+  content: "";
+  height: 3px;
+  width: 150px;
+  background-color: #9a2257;
+  box-shadow: 0 6px 0 #494786;
+}
+
 /*********************** Base ************************/
 /*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
 /* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 *:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
   all: unset;
   display: revert;
@@ -39,7 +68,15 @@ textarea {
   white-space: revert;
 }
 
+.integration {
+  margin-top: 100px;
+  flex-grow: 1;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-image: linear-gradient(rgba(241, 241, 241, 0.9), rgba(255, 255, 255, 0.8)), url(../../images/testBackgroundGB.gif);
   background-size: cover;
   background-repeat: no-repeat;
@@ -58,8 +95,10 @@ h1 {
 }
 
 h2 {
-  font-family: "Press Start 2P", system-ui;
-  font-size: clamp(1.6rem, 2vw + 1rem, 2.1rem);
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(1.125rem, 2.5vw + 1rem, 2.25rem);
   text-align: center;
   padding: 2rem;
 }
@@ -79,7 +118,7 @@ ul,
 li,
 td {
   font-size: clamp(1rem, 0.8438rem + 0.5vw, 1.125rem);
-  font-family: "Poppins", sans-serif;
+  font-family: "Lato", sans-serif;
   line-height: 1.4;
 }
 
@@ -87,6 +126,18 @@ td {
   font-size: clamp(0.5rem, 1vw + 0.5rem, 0.8rem);
 }
 
+@media only screen and (max-width: 500px) {
+  h2 {
+    font-size: 4vw;
+  }
+  h3 {
+    font-size: 3.8vw;
+  }
+  p,
+  a {
+    font-size: 3.2vw;
+  }
+}
 /*********************** Components ************************/
 footer {
   position: relative;
@@ -148,7 +199,6 @@ footer .footer-container .footer-widget h3 {
 }
 footer .footer-container .footer-widget a {
   cursor: pointer;
-  font-size: 1.5rem;
 }
 footer .footer-container .socials {
   display: flex;
@@ -291,51 +341,62 @@ footer .copyright-wrapper {
   height: 100%;
 }
 
+.birthday {
+  margin: 4rem 0;
+}
+
 .posts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
   padding: 0 10rem;
 }
-.posts .container-birthday-img {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.posts .container-birthday-img img {
-  width: 200px;
-  height: auto;
-  object-fit: cover;
-  cursor: pointer;
-}
 .posts article {
   text-align: center;
-  max-width: 300px;
+  max-width: 350px;
   margin: 0 auto;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 .posts article .content-birthday .see-more {
-  padding: 0.5em 1em;
+  padding: 0.8em 1em;
   border: none;
-  border-radius: 0.3em;
+  border-radius: 0.5em;
   font-weight: bold;
   text-align: center;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
   transition: background-color 0.3s ease;
-  background: #494786;
+  background: #9a2257;
   color: white;
   transition: 0.2s ease-out;
-  font-size: clamp(1rem, 2vw + 1rem, 1.4rem);
+  font-size: clamp(0.6rem, 2vw + 1rem, 1rem);
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
 }
 .posts article .content-birthday .see-more:hover {
   transform: scale(1.09);
   background: #9a2257;
 }
-.posts article .content-birthday h3,
 .posts article .content-birthday p,
 .posts article .content-birthday .see-more {
   margin-top: 0.9em;
+}
+.posts .container-birthday-img {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 0.8rem;
+}
+.posts .container-birthday-img img {
+  height: auto;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .news-container {
@@ -395,14 +456,11 @@ footer .copyright-wrapper {
   padding: 1rem 0;
 }
 
-.card .image-box {
-  height: 200px;
-}
-
 .card .image-box img {
   width: 100%;
   height: 100%;
   border-radius: 8px 8px 0 0;
+  object-fit: cover;
 }
 
 .card .profile-details {
@@ -452,7 +510,6 @@ footer .copyright-wrapper {
 }
 
 .card-content {
-  background: #c4bebb;
   padding: 0.8rem;
 }
 
@@ -578,7 +635,7 @@ footer .copyright-wrapper {
 .game-details-header {
   max-width: 450px;
   margin: 0 auto;
-  margin-top: 9rem;
+  margin-top: 100px;
 }
 .game-details-header .title-game-details {
   background: white;
@@ -631,6 +688,7 @@ footer .copyright-wrapper {
 .screen {
   margin: 0 auto;
   border-bottom-right-radius: 75px;
+  padding: 1rem;
 }
 .screen .screen-content {
   margin-top: 30px;
@@ -830,6 +888,12 @@ table.infoTable {
 table.infoTable td {
   border: 2px solid #aaaaaa;
   padding: 8px 8px;
+  vertical-align: middle;
+}
+
+.company-img {
+  width: 50px;
+  height: auto;
 }
 
 table.infoTable td:nth-child(even) {
@@ -952,6 +1016,11 @@ table.infoTable td:nth-child(even) {
   text-align: center;
 }
 
+.container-scroll-other-versions {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
 .panel-heading {
   padding: 2rem;
 }
@@ -995,7 +1064,7 @@ hr {
 }
 
 .team-cards {
-  --auto-grid-min-size: 25rem;
+  --auto-grid-min-size: 20rem;
   padding: 3rem 5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
@@ -1008,36 +1077,6 @@ hr {
   margin: 2rem;
 }
 
-.subtitle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  column-gap: 1rem;
-  white-space: nowrap;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.subtitle::before {
-  left: 0;
-  transform: translate(-5%, -50%);
-}
-
-.subtitle::after {
-  right: 0;
-  transform: translate(5%, -50%);
-}
-
-.subtitle::before,
-.subtitle::after {
-  content: "";
-  height: 3px;
-  width: 150px;
-  background-color: #9a2257;
-  box-shadow: 0 6px 0 #494786;
-}
-
 .card-content-container {
   padding: 1.5rem;
 }
@@ -1047,12 +1086,13 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: white;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 .team-card .team-image {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   margin-bottom: 10px;
 }
@@ -1081,12 +1121,13 @@ hr {
   cursor: pointer;
 }
 .team-card .team-socials i {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
 }
 .team-card .team-socials i:hover {
-  scale: 1.05;
+  transform: scale(1.1);
   transition: 0.2s;
+  color: #c4bebb;
 }
 
 /*********************** Layouts ************************/
@@ -1389,6 +1430,11 @@ nav > div {
 @media (max-width: 1024px) {
   .hero-section {
     flex-direction: column-reverse;
+    margin-top: 150px;
+    height: auto;
+  }
+  .hero-section img {
+    max-width: 25%;
   }
   .posts {
     display: grid;
@@ -1463,7 +1509,7 @@ nav > div {
     padding: 0.8rem;
   }
   .hero-section {
-    margin-top: 50px;
+    margin-top: 100px;
   }
   .hero-section h1 {
     font-size: 5vw;
@@ -1521,6 +1567,10 @@ nav > div {
   .other-versions,
   .game__info__container {
     margin: 0.8rem;
+  }
+  .youtube-game-details {
+    width: 100%;
+    height: auto;
   }
   .container-gameboy h1 {
     font-size: 3vw;

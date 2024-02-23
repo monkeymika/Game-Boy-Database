@@ -1,7 +1,7 @@
 .game-details-header {
   max-width: 450px;
   margin: 0 auto;
-  margin-top: 9rem;
+  margin-top: 100px;
 
   .title-game-details {
     background: white;
@@ -60,6 +60,7 @@
 .screen {
   margin: 0 auto;
   border-bottom-right-radius: 75px;
+  padding: 1rem;
 
   .screen-content {
     margin-top: 30px;
@@ -275,6 +276,12 @@ table.infoTable {
 table.infoTable td {
   border: 2px solid #aaaaaa;
   padding: 8px 8px;
+  vertical-align: middle;
+}
+
+.company-img {
+  width: 50px;
+  height: auto;
 }
 
 table.infoTable td:nth-child(even) {
@@ -429,6 +436,11 @@ table.infoTable td:nth-child(even) {
     padding: 1rem;
     text-align: center;
   }
+}
+
+.container-scroll-other-versions {
+  max-height: 400px;
+  overflow-y: scroll;
 }
 
 .panel-heading {

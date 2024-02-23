@@ -51,34 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /***************************** Toggle Menu *********************************/
-
-// function toggleMenu() {
-// 	var menu = document.getElementById('fullset-list');
-// 	if (menu.classList.contains('hidden')) {
-// 		menu.classList.remove('hidden');
-// 		menu.classList.add('shown');
-// 	} else {
-// 		menu.classList.remove('shown');
-// 		menu.classList.add('hidden');
-// 	}
-// }
-
-// // Fermer le menu si on clique en dehors
-// window.onclick = function (event) {
-// 	if (!event.target.matches('.title-list')) {
-// 		var dropdowns = document.getElementsByClassName("shown");
-// 		for (var i = 0; i < dropdowns.length; i++) {
-// 			var openDropdown = dropdowns[i];
-// 			if (openDropdown.classList.contains('shown')) {
-// 				openDropdown.classList.remove('shown');
-// 				openDropdown.classList.add('hidden');
-// 			}
-// 		}
-// 	}
-// }
-
 document.addEventListener('DOMContentLoaded', function () {
-	var toggleTitles = document.querySelectorAll('.toggle-title');
+	let toggleTitles = document.querySelectorAll('.toggle-title');
 
 	toggleTitles.forEach(function (title) {
 		title.addEventListener('click', function () {
@@ -90,22 +64,17 @@ document.addEventListener('DOMContentLoaded', function () {
 			});
 
 			// Basculez l'état visible/caché du contenu lié au titre cliqué
-			var contentToShow = title.nextElementSibling;
+			let contentToShow = title.nextElementSibling;
 			contentToShow.classList.toggle('hidden');
 		});
 	});
 });
 
-
-
-
-
-
 /********************* SearchBar animation on click ****************************/
 
 document.addEventListener('DOMContentLoaded', function () {
-	var searchInput = document.querySelector('.search-bar input[type="text"]');
-	var searchButton = document.querySelector('.search-bar button');
+	let searchInput = document.querySelector('.search-bar input[type="text"]');
+	let searchButton = document.querySelector('.search-bar button');
 
 	searchButton.addEventListener('click', function () {
 		if (!searchInput.classList.contains('expanded')) {
@@ -121,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*NavBar animation on scroll */
 document.addEventListener('DOMContentLoaded', function () {
-	var nav = document.querySelector('nav');
+	let nav = document.querySelector('nav');
 
 	window.addEventListener('scroll', function () {
 		if (window.scrollY > 50) { // Ajuste ce nombre en fonction de quand tu veux que le changement se produise
@@ -183,14 +152,14 @@ initializeSwiper(".other-versions-container .slide-container", "8");
 // Modal au clic sur l'image
 
 document.addEventListener('DOMContentLoaded', function () {
-	var modal = document.getElementById("modal");
-	var modalImg = document.getElementById("modalImg");
-	var isZoomed = false;
-	var startX, startY, moveX = 0, moveY = 0;
+	let modal = document.getElementById("modal");
+	let modalImg = document.getElementById("modalImg");
+	let isZoomed = false;
+	let startX, startY, moveX = 0, moveY = 0;
 
 	document.querySelectorAll('.details-img-container').forEach(item => {
 		item.addEventListener('click', function () {
-			var img = this.getElementsByTagName("img")[0];
+			let img = this.getElementsByTagName("img")[0];
 			modal.style.display = "flex";
 			modalImg.src = img.src;
 			document.getElementById("caption").innerHTML = img.alt;
@@ -203,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 
-	var closeModal = document.getElementById("closeModal");
+	let closeModal = document.getElementById("closeModal");
 	closeModal.addEventListener('click', function () {
 		modal.style.display = "none";
 	});

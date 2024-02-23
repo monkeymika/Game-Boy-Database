@@ -35,7 +35,15 @@ textarea {
   white-space: revert;
 }
 
+.integration {
+  margin-top: 100px;
+  flex-grow: 1;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-image: linear-gradient(
       rgb(241 241 241 / 90%),
       rgb(255 255 255 / 80%)

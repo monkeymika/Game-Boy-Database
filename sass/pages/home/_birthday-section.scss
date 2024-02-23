@@ -1,36 +1,45 @@
+.birthday {
+  margin: 4rem 0;
+}
+
 .posts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
   padding: 0 10rem;
 
-  .container-birthday-img {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-    img {
-      width: 200px;
-      height: auto; // Ou utilise une hauteur fixe si tu veux que toutes les images aient la même hauteur
-      object-fit: cover; // ou 'contain' pour éviter le rognage
-      cursor: pointer;
-    }
-  }
-
   article {
     text-align: center;
-    max-width: 300px;
+    max-width: 350px;
     margin: 0 auto;
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    @include box-shadow;
 
     .content-birthday {
       .see-more {
         @include see-more;
       }
-      h3,
+
       p,
       .see-more {
         margin-top: 0.9em;
       }
+    }
+  }
+
+  .container-birthday-img {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-bottom: 0.8rem;
+
+    img {
+      height: auto; // hauteur fixe images aient la même hauteur
+      object-fit: cover; // ou 'contain' pour éviter le rognage
+      cursor: pointer;
     }
   }
 }
