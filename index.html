@@ -25,10 +25,17 @@
       <!-- <div class="logo-main">
         <img src="./images/text-logoGB_pink.png" alt="">
       </div> -->
-      <div class="toggle-btn">
-        <button class="burger" onclick="this.classList.toggle('active')">
-        </button>
+      <div class="container-nav-user">
+        <div class="toggle-btn">
+          <button class="burger" onclick="this.classList.toggle('active')">
+          </button>
+        </div>
+
+        <div class="container-user">
+          <i class="fa-solid fa-user"></i>
+        </div>
       </div>
+
     </nav>
 
     <div class="overlay">
@@ -43,161 +50,162 @@
     </div>
 
     <div class="overlay-menu">
-      <div class="menu-title">
+      <!-- <div class="menu-title">
         <p>menu</p>
-      </div>
+      </div> -->
 
       <div class="search-bar">
         <input type="text" placeholder="Search..." name="search">
-        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button type="button" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
 
-      <div class="menu-item">
-        <div class="menu-item-name">
-          <div class="item-toggle toggle-title">
-            <p class="title-list">Fullsets 1/2</p>
+      <div class="container-menu-item">
 
+        <div class="menu-item">
+          <div class="menu-item-name">
+            <div class="item-toggle toggle-title">
+              <p class="title-list">Fullsets 1/2 <i class="fa-solid fa-sort-down"></i></p>
+
+            </div>
+            <ul id="fullset-list" class="hidden toggle-content">
+              <div class="list-part1">
+                <a href="../pages/fullset-ASI.html">
+                  <li class="items__sub__list">ASI</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">AUS</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">CAN</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">CHN</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">ESP</li>
+                </a>
+              </div>
+              <div class="list-part2">
+                <a href="#">
+                  <li class="items__sub__list">EUR</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">FAH</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">FRA</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">FRG</li>
+                </a>
+              </div>
+            </ul>
           </div>
-          <ul id="fullset-list" class="hidden toggle-content">
-            <div class="list-part1">
-              <a href="../pages/fullset-ASI.html">
-                <li class="items__sub__list">ASI</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">AUS</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">CAN</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">CHN</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">ESP</li>
-              </a>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-name">
+            <div class="item-toggle toggle-title">
+              <p class="title-list">Fullsets 2/2<i class="fa-solid fa-sort-down"></i></p>
+
             </div>
-            <div class="list-part2">
-              <a href="#">
-                <li class="items__sub__list">EUR</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">FAH</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">FRA</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">FRG</li>
-              </a>
+            <ul id="fullset-list-part2" class="hidden toggle-content">
+              <div class="list-part1">
+                <a href="../pages/fullset-ASI.html">
+                  <li class="items__sub__list ">GPS</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">HOL</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">ITA</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">JPN</li>
+                </a>
+
+              </div>
+              <div class="list-part2">
+                <a href="#">
+                  <li class="items__sub__list">NOE</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">SCN</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">UKV</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">USA</li>
+                </a>
+              </div>
+            </ul>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-item-name">
+            <div class="item-toggle toggle-title">
+              <p class=" title-list">Zoom On<i class="fa-solid fa-sort-down"></i></p>
+
             </div>
-          </ul>
+            <ul id="zoom" class="hidden toggle-content">
+              <div class="list-part1">
+                <a href="../pages/fullset-ASI.html">
+                  <li class="items__sub__list">Ads & Catalog</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Dig into the database</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Zoom on Companies</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Clasic Disney</li>
+                </a>
+
+
+              </div>
+              <div class="list-part2">
+                <a href="#">
+                  <li class="items__sub__list">Ocean budget white boxes</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Player's choice</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Timeline Listing</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Loose Collection</li>
+                </a>
+
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">
+            <div class="item-toggle toggle-title">
+              <p class=" title-list">About<i class="fa-solid fa-sort-down"></i></p>
+
+            </div>
+            <ul id="about" class="hidden toggle-content">
+              <div class="list-part1">
+                <a href="../pages/fullset-ASI.html">
+                  <li class="items__sub__list">How can you help ?</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Statistics</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">The Team</li>
+                </a>
+              </div>
+            </ul>
+          </div>
         </div>
       </div>
-
-      <div class="menu-item">
-        <div class="menu-item-name">
-          <div class="item-toggle toggle-title">
-            <p class="title-list">Fullsets 2/2</p>
-
-          </div>
-          <ul id="fullset-list-part2" class="hidden toggle-content">
-            <div class="list-part1">
-              <a href="../pages/fullset-ASI.html">
-                <li class="items__sub__list">ASI</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">AUS</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">CAN</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">CHN</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">ESP</li>
-              </a>
-            </div>
-            <div class="list-part2">
-              <a href="#">
-                <li class="items__sub__list">EUR</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">FAH</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">FRA</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">FRG</li>
-              </a>
-            </div>
-          </ul>
-        </div>
-      </div>
-
-      <div class="menu-item">
-        <div class="menu-item-name">
-          <div class="item-toggle toggle-title">
-            <p class=" title-list">Zoom On</p>
-
-          </div>
-          <ul id="zoom" class="hidden toggle-content">
-            <div class="list-part1">
-              <a href="../pages/fullset-ASI.html">
-                <li class="items__sub__list">Ads & Catalog</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">Dig into the database</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">Zoom on Companies</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">Clasic Disney</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">Ocean budget white boxes</li>
-              </a>
-
-            </div>
-            <div class="list-part2">
-              <a href="#">
-                <li class="items__sub__list">Player's choice</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">Timeline Listing</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">Loose Collection</li>
-              </a>
-
-            </div>
-          </ul>
-        </div>
-      </div>
-      <div class="menu-item">
-        <div class="menu-item-name">
-          <div class="item-toggle toggle-title">
-            <p class=" title-list">About</p>
-
-          </div>
-          <ul id="about" class="hidden toggle-content">
-            <div class="list-part1">
-              <a href="../pages/fullset-ASI.html">
-                <li class="items__sub__list">How can you help ?</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">Statistics</li>
-              </a>
-              <a href="#">
-                <li class="items__sub__list">The Team</li>
-              </a>
-            </div>
-          </ul>
-        </div>
-      </div>
-
     </div>
     <!-- Hero Section -->
 

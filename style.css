@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*********************** Utils ************************/
 /******************** Colors ***********************/
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
@@ -326,11 +327,16 @@ footer .copyright-wrapper {
   padding: 1rem;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  transition: 0.5s ease-out;
 }
 .btn-hero-container .btn-hero:nth-child(2) {
   border: 2px solid #9a2257;
   background: white;
   color: #9a2257;
+}
+.btn-hero-container .btn-hero:hover {
+  background: #494786;
+  transform: scale(1.09);
 }
 
 .hero-img {
@@ -364,7 +370,7 @@ footer .copyright-wrapper {
 .posts article .content-birthday .see-more {
   padding: 0.8em 1em;
   border: none;
-  border-radius: 0.5em;
+  border-radius: 15px;
   font-weight: bold;
   text-align: center;
   cursor: pointer;
@@ -374,13 +380,13 @@ footer .copyright-wrapper {
   background: #9a2257;
   color: white;
   transition: 0.2s ease-out;
-  font-size: clamp(0.6rem, 2vw + 1rem, 1rem);
+  font-size: clamp(0.5rem, 2vw + 1rem, 0.8rem);
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
 }
 .posts article .content-birthday .see-more:hover {
   transform: scale(1.09);
-  background: #9a2257;
+  background: #494786;
 }
 .posts article .content-birthday p,
 .posts article .content-birthday .see-more {
@@ -1131,6 +1137,17 @@ hr {
 }
 
 /*********************** Layouts ************************/
+.container-nav-user {
+  display: flex;
+}
+
+.fa-user {
+  padding: 0.6rem;
+  border-radius: 50%;
+  color: white;
+  background: #9a2257;
+}
+
 /* Navbar scroll animation*/
 nav.scrolled {
   background-color: #494786;
@@ -1165,10 +1182,6 @@ nav {
   top: 0;
   height: 100px;
   transition: background-color 0.5s ease;
-}
-
-nav > div {
-  flex: 1;
 }
 
 .logo img {
@@ -1303,11 +1316,6 @@ nav > div {
   padding: 0.4em;
   transition: 0.3s;
   cursor: pointer;
-  margin-top: 2rem;
-}
-
-.hidden {
-  display: none;
 }
 
 .menu-item-year,
@@ -1315,26 +1323,8 @@ nav > div {
   flex: 1;
 }
 
-.menu-item-name p,
-.menu-item-name .item__sub__list {
-  font-size: clamp(1rem, 2vw + 1rem, 1.1rem);
-}
-
-.item-toggle {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-.item-toggle i {
-  font-size: 1.5rem;
-}
-
 .menu-item-link {
   text-align: right;
-}
-
-.sub-menu {
-  display: none;
 }
 
 .menu-item-name.active .sub-menu {
@@ -1343,14 +1333,9 @@ nav > div {
 
 .menu-item ul {
   list-style-type: none;
-  margin: 1rem 0;
+  margin: 0.4rem 0;
   padding: 0;
   gap: 15px;
-}
-
-.menu-item li {
-  display: inline;
-  font-size: clamp(0.7rem, 1vw + 0.5rem, 1rem);
 }
 
 .part {
@@ -1366,17 +1351,144 @@ nav > div {
   gap: 1.5rem;
   margin-top: 1rem;
 }
+.list-part1 a,
+.list-part2 a {
+  position: relative;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: black;
+  transition: 0.2s ease-in-out;
+}
+.list-part1 a:hover,
+.list-part2 a:hover {
+  background: rgb(231, 231, 231);
+  transform: scale(1.01);
+}
 
-.title-list {
+#fullset-list .list-part1 a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+#fullset-list .list-part1 a:nth-child(1)::after {
+  background-color: #e74c3c;
+}
+#fullset-list .list-part1 a:nth-child(2)::after {
+  background-color: #3498db;
+}
+#fullset-list .list-part2 a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+#fullset-list .list-part2 a:nth-child(1)::after {
+  background-color: red;
+}
+#fullset-list .list-part2 a:nth-child(2)::after {
+  background-color: red;
+}
+
+#fullset-list-part2 .list-part1 a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+#fullset-list-part2 .list-part1 a:nth-child(1)::after {
+  background-color: #2ecc71;
+}
+#fullset-list-part2 .list-part1 a:nth-child(2)::after {
+  background-color: #9b59b6;
+}
+#fullset-list-part2 .list-part2 a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+#fullset-list-part2 .list-part2 a:nth-child(1)::after {
+  background-color: green;
+}
+#fullset-list-part2 .list-part2 a:nth-child(2)::after {
+  background-color: green;
+}
+
+.items__sub__list {
+  font-size: clamp(10px, 2vw, 14px);
   text-transform: uppercase;
 }
 
-/*********** List Toggle *************/
+.container-menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.title-list {
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: clamp(18px, 3vw, 26px);
+}
+
+#zoom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#zoom .list-part1,
+#zoom .list-part2 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.5s ease;
+}
+
+/*********** transition liste *************/
+/* Début de l'animation des listes déroulantes */
+.toggle-content {
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s;
+}
+
+.toggle-content:not(.hidden) {
+  max-height: 500px; /* Ajustez cette valeur selon le contenu maximal que vous attendez */
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Fin de l'animation des listes déroulantes */
 /********** SearchBar **********/
 .search-bar {
   display: flex;
   justify-content: center;
-  margin: 1em;
+  margin: 2em;
   color: black;
 }
 .search-bar input {
@@ -1583,6 +1695,10 @@ nav > div {
   }
   .add__btns {
     font-size: 2vw;
+  }
+  #about .list-part1 {
+    flex-direction: column;
+    text-align: center;
   }
 }
 @media only screen and (max-width: 350px) {

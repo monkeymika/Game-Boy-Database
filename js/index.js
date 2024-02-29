@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			// Remettre le z-index à une valeur neutre quand l'animation est inversée et complète
 			// Ici, on peut mettre un z-index qui assure que l'overlay ne couvre pas inutilement d'autres éléments
 			// mais reste au-dessus de contenu de base si nécessaire. 0 est une valeur commune pour cela.
-			overlay.style.zIndex = '0';
-			overlayMenu.style.zIndex = '0';
+			overlay.style.zIndex = '-1';
+			overlayMenu.style.zIndex = '-1';
 		}
 	});
 
@@ -56,36 +56,56 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	toggleTitles.forEach(function (title) {
 		title.addEventListener('click', function () {
-			// Fermez tous les contenus ouverts
+			// Fermez tous les contenus ouverts et réinitialisez les icônes
 			document.querySelectorAll('.toggle-content').forEach(function (content) {
 				if (content !== title.nextElementSibling) {
 					content.classList.add('hidden');
+					let otherIcon = content.previousElementSibling.querySelector('.fa-sort-down');
+					if (otherIcon) {
+						otherIcon.classList.remove('rotate');
+					}
 				}
 			});
 
-			// Basculez l'état visible/caché du contenu lié au titre cliqué
+			// Cible le contenu déroulant directement lié et l'icône de flèche
 			let contentToShow = title.nextElementSibling;
+			let icon = title.querySelector('.fa-sort-down');
+
+			// Bascule la classe 'hidden' pour montrer/cacher le contenu
 			contentToShow.classList.toggle('hidden');
+
+			// Ajoute/enlève la classe 'rotate' à l'icône pour la faire pivoter
+			icon.classList.toggle('rotate');
 		});
 	});
 });
+
+
+
+
+
+
+
+
 
 /********************* SearchBar animation on click ****************************/
 
 document.addEventListener('DOMContentLoaded', function () {
 	let searchInput = document.querySelector('.search-bar input[type="text"]');
-	let searchButton = document.querySelector('.search-bar button');
+	let searchButton = document.querySelector('.search-bar .search-button');
 
 	searchButton.addEventListener('click', function () {
 		if (!searchInput.classList.contains('expanded')) {
 			searchInput.classList.add('expanded');
-			searchButton.classList.add('expanded');
-			searchInput.focus(); // Met le focus sur l'input quand il est ouvert
-		} else {
-			// Ici, tu mettras plus tard le code pour la recherche
+			searchInput.focus();
+			searchButton.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
+			searchButton.type = 'submit'; // Change le type pour soumettre le formulaire
+			searchButton.style.borderRadius = '0 15px 15px 0'; // Modifie le style du bouton lors de la transformation
 		}
 	});
 });
+
+
 
 
 /*NavBar animation on scroll */
@@ -205,7 +225,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			startY = e.clientY;
 		}
 	});
-
 
 });
 

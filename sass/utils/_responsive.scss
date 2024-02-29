@@ -210,6 +210,14 @@
   .add__btns {
     font-size: 2vw;
   }
+
+  //nav list
+  #about {
+    .list-part1 {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
 }
 
 // xxtra small Device

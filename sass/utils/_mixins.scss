@@ -1,7 +1,7 @@
 @mixin see-more {
   padding: 0.8em 1em;
   border: none;
-  border-radius: 0.5em;
+  border-radius: 15px;
   font-weight: bold;
   text-align: center;
   cursor: pointer;
@@ -11,13 +11,13 @@
   background: $purple-GB;
   color: white;
   transition: 0.2s ease-out;
-  font-size: clamp(0.6rem, 2vw + 1rem, 1rem);
+  font-size: clamp(0.5rem, 2vw + 1rem, 0.8rem);
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
 
   &:hover {
     transform: scale(1.09);
-    background: $purple-GB;
+    background: $darkPurple-GB;
   }
 }
 
