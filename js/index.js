@@ -80,14 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
-
-
-
-
-
-
-
-
 /********************* SearchBar animation on click ****************************/
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -104,8 +96,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 });
-
-
 
 
 /*NavBar animation on scroll */
@@ -230,3 +220,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+//User modal
+document.addEventListener('DOMContentLoaded', function () {
+	var modal = document.getElementById("userModal");
+	var btn = document.querySelector(".container-user");
+	var span = document.getElementsByClassName("userClose")[0];
+
+	// Lorsque l'utilisateur clique sur container-user, ouvre la modale
+	btn.onclick = function () {
+		modal.style.display = "flex";
+	}
+
+	// Lorsque l'utilisateur clique sur <span> (x), ferme la modale
+	span.onclick = function () {
+		modal.style.display = "none";
+	}
+
+	// Lorsque l'utilisateur clique n'importe où en dehors de la modale, ferme-la
+	window.onclick = function (event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+});

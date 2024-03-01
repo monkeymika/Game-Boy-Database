@@ -51,3 +51,74 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+//User modal style
+
+/* Style de base pour la modale, inchangé */
+.userModal {
+  display: none; /* La modale est cachée par défaut */
+  position: fixed; /* Positionnement fixe par rapport à l'écran */
+  left: 0;
+  top: 0;
+  width: 100%; /* Largeur de l'écran */
+  height: 100%; /* Hauteur de l'écran */
+  background-color: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
+  display: flex;
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+}
+
+/* Ajustements pour conserver les proportions et centrer les boutons */
+.userModal-content {
+  background-color: white;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 5px;
+  width: 80vw; /* Largeur en fonction du viewport */
+  height: 80vw; /* Hauteur identique à la largeur pour maintenir l'aspect carré */
+  max-width: 500px; /* Largeur maximale */
+  max-height: 500px; /* Hauteur maximale */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex; /* Utilisation de Flexbox pour centrer les éléments */
+  flex-direction: column; /* Organise les boutons verticalement */
+  justify-content: center; /* Centrage vertical des boutons */
+  align-items: center; /* Centrage horizontal des boutons */
+}
+
+/* Style pour la croix de fermeture, inchangé */
+.userClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #aaa;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.userClose:hover {
+  color: black;
+}
+
+/* Style des boutons, ajusté pour centrer */
+#loginBtn,
+#registerBtn {
+  display: block; /* Chaque bouton occupe sa propre ligne */
+  width: auto; /* Adaptation à la largeur du contenu */
+  margin: 10px; /* Marge pour les espacer verticalement */
+  padding: 10px 20px; /* Padding ajusté pour une meilleure forme */
+  background: $purple-GB;
+  color: white;
+  border-radius: 10px;
+  @include box-shadow;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+}
+
+/* Adaptation pour les petits écrans */
+@media screen and (max-width: 600px) {
+  .userModal-content {
+    width: 90vw; /* Ajustement de la largeur sur les petits écrans */
+    height: 90vw; /* Ajustement de la hauteur pour maintenir le carré */
+  }
+}
