@@ -299,12 +299,14 @@ footer .copyright-wrapper {
 
 /* Ajustements pour conserver les proportions et centrer les boutons */
 .userModal-content {
-  background-color: white;
+  background-color: rgba(73, 71, 134, 0.5); /* Couleur de fond avec transparence */
+  backdrop-filter: blur(10px); /* Flou de l'arrière-plan */
+  -webkit-backdrop-filter: blur(10px); /* Pour la compatibilité avec Safari */
   margin: 15px;
-  padding: 20px;
-  border-radius: 5px;
+  padding: 3rem;
+  border-radius: 15px;
   width: 80vw; /* Largeur en fonction du viewport */
-  height: 80vw; /* Hauteur identique à la largeur pour maintenir l'aspect carré */
+  height: auto; /* Hauteur identique à la largeur pour maintenir l'aspect carré */
   max-width: 500px; /* Largeur maximale */
   max-height: 500px; /* Hauteur maximale */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -313,6 +315,7 @@ footer .copyright-wrapper {
   flex-direction: column; /* Organise les boutons verticalement */
   justify-content: center; /* Centrage vertical des boutons */
   align-items: center; /* Centrage horizontal des boutons */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Bordure légère pour renforcer l'effet de verre */
 }
 
 /* Style pour la croix de fermeture, inchangé */
@@ -320,18 +323,33 @@ footer .copyright-wrapper {
   position: absolute;
   top: 10px;
   right: 10px;
-  color: #aaa;
-  font-size: 25px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
   cursor: pointer;
+  border: 2px solid #9a2257;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1;
+  padding: 1rem;
 }
 
-.userClose:hover {
-  color: black;
+.userClose:hover,
+.userClose:focus {
+  color: #9a2257;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Style des boutons, ajusté pour centrer */
 #loginBtn,
-#registerBtn {
+#registerBtn,
+.modal-form button {
   display: block; /* Chaque bouton occupe sa propre ligne */
   width: auto; /* Adaptation à la largeur du contenu */
   margin: 10px; /* Marge pour les espacer verticalement */
@@ -343,15 +361,87 @@ footer .copyright-wrapper {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
   font-family: "Lato", sans-serif;
+  font-size: clamp(8px, 2vw, 14px);
+  transition: 0.2s ease-out;
+  text-align: center;
+  cursor: pointer;
+}
+#loginBtn:hover,
+#registerBtn:hover,
+.modal-form button:hover {
+  background: #494786;
+  transform: scale(1.09);
 }
 
 /* Adaptation pour les petits écrans */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
   .userModal-content {
     width: 90vw; /* Ajustement de la largeur sur les petits écrans */
-    height: 90vw; /* Ajustement de la hauteur pour maintenir le carré */
+    height: 120vw; /* Ajustement de la hauteur pour maintenir le carré */
+  }
+  .login-text {
+    font-size: 2vw;
+  }
+  #loginBtn,
+  #registerBtn {
+    font-size: 2vw;
   }
 }
+.modal-img {
+  width: 20%;
+  margin-bottom: 1rem;
+}
+
+.login-text {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: white;
+  font-size: clamp(12px, 2vw, 16px);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-form input,
+.modal-form select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: white; /* Fond blanc pour les champs */
+  font-family: "Lato", sans-serif;
+}
+
+.back-arrow {
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.back-arrow i {
+  color: white;
+}
+
+.modal-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.modal-links a {
+  color: white; /* Ou toute autre couleur selon votre design */
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal-links a:hover {
+  text-decoration: none; /* Optionnel, pour changer le style au survol */
+}
+
 /*********************** Home ************************/
 .hero-section {
   height: 100vh;

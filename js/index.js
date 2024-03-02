@@ -243,3 +243,115 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+	var modal = document.getElementById("userModal");
+	var modalContent = document.querySelector(".userModal-content");
+	// Stocker le contenu original de la modal
+	var originalContent = modalContent.innerHTML;
+
+	function closeModal() {
+		modal.style.display = "none";
+	}
+
+	function openModal() {
+		modal.style.display = "flex";
+	}
+
+	function addCloseEvent() {
+		var span = document.querySelector(".userClose");
+		span.onclick = closeModal;
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				closeModal();
+			}
+		};
+	}
+
+	// Fonction pour restaurer le contenu original de la modal
+	function restoreOriginalContent() {
+		modalContent.innerHTML = originalContent;
+		addCloseEvent(); // Réajouter les écouteurs d'événement après avoir restauré le contenu original
+		// Réassocier les événements aux boutons Login et Register
+		document.getElementById("loginBtn").onclick = showLoginForm;
+		document.getElementById("registerBtn").onclick = showRegisterForm;
+	}
+
+	function setModalContent(content) {
+		modalContent.innerHTML = content;
+		addCloseEvent(); // Réajoute l'écouteur sur la croix à chaque changement de contenu
+		// Ajouter la flèche de retour avec l'événement pour restaurer le contenu original
+		document.querySelector(".back-arrow").onclick = restoreOriginalContent;
+	}
+
+	function showLoginForm() {
+		setModalContent(`
+			<span class="userClose">&times;</span>
+			<div class="back-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+			<img class="modal-img" src="./images/rockmanLogin_GB-database.png" alt="">
+			<form class="modal-form">
+				<input type="text" placeholder="User Name" name="user-name">
+				<input type="password" placeholder="Password" name="password">
+				<button type="submit">Login</button>
+			</form>
+			<p class="modal-links">
+				<a href="#" id="linkToRegister">Not member yet? Register here!</a>
+			</p>
+			<p class="modal-links">
+				<a href="#" onclick="alert('Functionality to be implemented'); return false;">Forgotten password?</a>
+			</p>
+		`);
+
+		// Ajout de l'écouteur d'événements pour le lien d'inscription
+		document.getElementById("linkToRegister").addEventListener('click', function (event) {
+			event.preventDefault(); // Empêche le comportement par défaut du lien
+			showRegisterForm(); // Affiche le formulaire d'inscription
+		});
+	}
+
+
+
+	function showRegisterForm() {
+		setModalContent(`
+            <span class="userClose">&times;</span>
+            <div class="back-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+			<img class="modal-img" src="./images/rockmanLogin_GB-database.png" alt="">
+            <form class="modal-form">
+                <input type="text" placeholder="User Name" name="user-name">
+                <input type="password" placeholder="Password" name="password">
+                <input type="password" placeholder="Confirm Password" name="confirm-password">
+                <input type="email" placeholder="Email" name="email">
+                <select name="country">
+				<option value="">Select Country</option>
+				<option value="Australia">Australia</option>
+				<option value="Belgium">Belgium</option>
+				<option value="Brazil">Brazil</option>
+				<option value="Canada">Canada</option>
+				<option value="China">China</option>
+				<option value="France">France</option>
+				<option value="Germany">Germany</option>
+				<option value="Italy">Italy</option>
+				<option value="Japan">Japan</option>
+				<option value="Netherlands">Netherlands</option>
+				<option value="Spain">Spain</option>
+				<option value="Sweden">Sweden</option>
+				<option value="Switzerland">Switzerland</option>
+				<option value="UK">UK</option>
+				<option value="USA">USA</option>
+				<option value="Other">Other country</option>
+                </select>
+                <button type="submit">Register</button>
+            </form>
+        `);
+	}
+
+	// Réassocier les événements initiaux aux boutons
+	document.getElementById("loginBtn").onclick = showLoginForm;
+	document.getElementById("registerBtn").onclick = showRegisterForm;
+});
+
+
+
+
