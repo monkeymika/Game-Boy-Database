@@ -254,10 +254,19 @@ nav {
 
       // Couleurs spécifiques pour les liens dans #fullset-list
       &:nth-child(1)::after {
-        background-color: #e74c3c;
+        background-color: yellow;
       }
       &:nth-child(2)::after {
-        background-color: #3498db;
+        background-color: rgb(105, 22, 22);
+      }
+      &:nth-child(3)::after {
+        background-color: rgb(211, 211, 211);
+      }
+      &:nth-child(4)::after {
+        background-color: rgb(223, 37, 68);
+      }
+      &:nth-child(5)::after {
+        background-color: pink;
       }
     }
   }
@@ -275,10 +284,16 @@ nav {
 
       // Couleurs spécifiques pour les liens dans #fullset-list
       &:nth-child(1)::after {
-        background-color: red;
+        background-color: rgb(151, 116, 116);
       }
       &:nth-child(2)::after {
-        background-color: red;
+        background-color: orangered;
+      }
+      &:nth-child(3)::after {
+        background-color: rgb(228, 34, 83);
+      }
+      &:nth-child(4)::after {
+        background-color: rgb(14, 154, 197);
       }
     }
   }
@@ -300,10 +315,16 @@ nav {
 
       // Couleurs spécifiques pour les liens dans #fullset-list-part2
       &:nth-child(1)::after {
-        background-color: #2ecc71;
+        background-color: #0e0e0e;
       }
       &:nth-child(2)::after {
-        background-color: #9b59b6;
+        background-color: rgb(0, 0, 170);
+      }
+      &:nth-child(3)::after {
+        background-color: rgb(67, 165, 211);
+      }
+      &:nth-child(4)::after {
+        background-color: rgb(216, 216, 216);
       }
     }
   }
@@ -321,10 +342,16 @@ nav {
 
       // Couleurs spécifiques pour les liens dans #fullset-list-part2
       &:nth-child(1)::after {
-        background-color: green;
+        background-color: rgb(0, 0, 102);
       }
       &:nth-child(2)::after {
-        background-color: green;
+        background-color: yellow;
+      }
+      &:nth-child(3)::after {
+        background-color: rgb(100, 168, 100);
+      }
+      &:nth-child(4)::after {
+        background-color: rgb(155, 155, 155);
       }
     }
   }

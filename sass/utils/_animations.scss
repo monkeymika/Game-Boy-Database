@@ -1,0 +1,99 @@
+@mixin animateTextIn($delay, $direction: "top") {
+  opacity: 0;
+  @if $direction == "top" {
+    transform: translateY(-100%);
+    animation: slideInFromTop 1s ease-out forwards $delay;
+  } @else if $direction == "right" {
+    transform: translateX(100%);
+    animation: slideInFromRight 1s ease-out forwards $delay;
+  }
+  // Assurez-vous que le nom de l'animation correspond au nom des keyframes
+}
+
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// Keyframes pour l'animation de glissement depuis la gauche
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%); // Commence à gauche, hors de l'écran
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0); // Termine à la position initiale
+    opacity: 1;
+  }
+}
+
+.hero-content h1,
+.hero-content .italic-text,
+.hero-content p,
+.hero-content .btn-hero-container {
+  // Ces propriétés sont nécessaires pour garantir que l'élément est prêt pour l'animation
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.gameboy-image {
+  // Ces propriétés sont nécessaires pour garantir que l'élément est prêt pour l'animation
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+// Appliquer les animations
+
+.hero-content {
+  h1 {
+    @include animateTextIn(0.2s, "top");
+  }
+
+  .italic-text {
+    @include animateTextIn(0.4s, "top");
+  }
+
+  p {
+    @include animateTextIn(0.6s, "top");
+  }
+
+  .btn-hero-container {
+    @include animateTextIn(0.8s, "top");
+  }
+}
+
+.gameboy-image {
+  @include animateTextIn(0s, "right");
+}
+
+// Appliquer l'animation sur la barre de navigation
+nav {
+  opacity: 0; // Démarrez avec la barre de navigation invisible
+  transform: translateX(-100%); // Position de départ hors de l'écran
+  animation: slideInFromLeft 1s ease-out forwards; // Animation sans délai
+}

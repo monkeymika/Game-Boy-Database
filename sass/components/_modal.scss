@@ -70,12 +70,7 @@
 
 /* Ajustements pour conserver les proportions et centrer les boutons */
 .userModal-content {
-  background-color: rgba(
-    73,
-    71,
-    134,
-    0.5
-  ); /* Couleur de fond avec transparence */
+  background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond avec transparence */
   backdrop-filter: blur(10px); /* Flou de l'arrière-plan */
   -webkit-backdrop-filter: blur(10px); /* Pour la compatibilité avec Safari */
   margin: 15px;
@@ -216,4 +211,8 @@
 
 .modal-links a:hover {
   text-decoration: none; /* Optionnel, pour changer le style au survol */
+}
+
+#userModal {
+  display: none; /* Assurez-vous que la modal est cachée au chargement de la page */
 }
