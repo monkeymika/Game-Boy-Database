@@ -112,8 +112,7 @@
 
 nav {
   opacity: 0;
-  transform: translateX(-100%);
-  animation: slideInFromLeft 1s ease-out forwards;
+  animation: fadeIn 1s ease-out forwards;
 }
 
 /*********************** Base ************************/
