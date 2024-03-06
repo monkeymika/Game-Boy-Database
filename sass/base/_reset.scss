@@ -41,9 +41,9 @@ textarea {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  // display: flex;
+  // flex-direction: column;
+  // min-height: 100vh;
   background-image: linear-gradient(
       rgb(241 241 241 / 90%),
       rgb(255 255 255 / 80%)
@@ -53,4 +53,13 @@ body {
   background-repeat: no-repeat;
   background-position: left;
   overflow-x: hidden;
+}
+
+.main-style {
+  .posts,
+  .container,
+  .block-comments,
+  .slide-container {
+    padding: 5rem 1rem;
+  }
 }

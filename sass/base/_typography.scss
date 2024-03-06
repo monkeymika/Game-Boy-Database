@@ -16,9 +16,22 @@ h2 {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: clamp(1.125rem, 2.5vw + 1rem, 2.25rem);
+  // font-size: clamp(1.125rem, 2.5vw + 1rem, 2.25rem);
   text-align: center;
-  padding: 2rem;
+  font-size: calc(16px + 1.1vw);
+
+  @media (max-width: 500px) {
+    h2 {
+      font-size: 6vw; /* Taille minimale pour assurer la lisibilité */
+    }
+  }
+
+  /* Pour les grands écrans, fixez une taille maximale */
+  @media (min-width: 1200px) {
+    h2 {
+      font-size: 36px; /* Taille maximale pour éviter que la police devienne trop grande */
+    }
+  }
 }
 
 h3 {

@@ -157,14 +157,18 @@ textarea {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   background-image: linear-gradient(rgba(241, 241, 241, 0.9), rgba(255, 255, 255, 0.8)), url(../../images/testBackgroundGB.gif);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left;
   overflow-x: hidden;
+}
+
+.main-style .posts,
+.main-style .container,
+.main-style .block-comments,
+.main-style .slide-container {
+  padding: 5rem 1rem;
 }
 
 h1 {
@@ -182,9 +186,19 @@ h2 {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: clamp(1.125rem, 2.5vw + 1rem, 2.25rem);
   text-align: center;
-  padding: 2rem;
+  font-size: calc(16px + 1.1vw);
+  /* Pour les grands écrans, fixez une taille maximale */
+}
+@media (max-width: 500px) {
+  h2 h2 {
+    font-size: 6vw; /* Taille minimale pour assurer la lisibilité */
+  }
+}
+@media (min-width: 1200px) {
+  h2 h2 {
+    font-size: 36px; /* Taille maximale pour éviter que la police devienne trop grande */
+  }
 }
 
 h3 {
@@ -657,7 +671,7 @@ footer .copyright-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
-  padding: 2rem 6rem;
+  padding: 5rem 6rem;
 }
 .news-container .news-card {
   border-radius: 10px;
@@ -1411,7 +1425,7 @@ hr {
     height: 100%;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 3rem;
     z-index: 1;
   }
   .register-block .register-form {
@@ -1419,6 +1433,91 @@ hr {
   }
 }
 
+.container-blocks {
+  --auto-grid-min-size: 20rem;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+  grid-gap: 3rem;
+  text-align: center;
+}
+
+.block-data {
+  background: white;
+  border-radius: 15px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.database-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.database-title-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.database-title-content h2,
+.database-title-content p {
+  margin-bottom: 10px;
+}
+
+.see-more {
+  background: #9a2257;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 25px;
+  text-transform: uppercase;
+  transition: 0.2s;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: clamp(0.6rem, 0.5rem + 0.5vw, 0.8rem);
+  font-family: "Lato", sans-serif;
+}
+.see-more:hover {
+  background: #494786;
+  transform: scale(1.02);
+}
+
+.database-img {
+  width: 150px;
+}
+.database-img img {
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (max-width: 783px) {
+  .block-data {
+    margin: 0 auto;
+    max-width: 500px;
+    margin-bottom: 1.5rem;
+  }
+  .container-blocks {
+    display: block;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .database-img {
+    width: 120px;
+  }
+  .database-img img {
+    width: 100%;
+    height: 100%;
+  }
+  .block-data {
+    max-width: 400px;
+  }
+  .container-blocks {
+    padding: 8px;
+  }
+}
 .team-title {
   margin-bottom: 8rem;
 }
@@ -1832,18 +1931,12 @@ nav {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  font-size: clamp(18px, 3vw, 26px);
+  font-size: clamp(14px, 3vw, 24px);
 }
 
-#zoom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 #zoom .list-part1,
 #zoom .list-part2 {
   display: flex;
-  flex-direction: column;
   text-align: center;
 }
 
@@ -1950,7 +2043,7 @@ nav {
   .news-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    padding: 2rem 2rem;
+    padding: 4rem 2rem;
   }
   .news-container .news-card img {
     width: 120px;
@@ -1999,11 +2092,32 @@ nav {
   nav {
     padding: 1em 2em;
   }
+  .doubleLines::before,
+  .doubleLines::after {
+    width: 80px;
+  }
 }
 /************************* Small Mobile Screen ****************************/
 @media only screen and (max-width: 500px) {
+  .logo img {
+    width: 120px;
+  }
   nav {
     padding: 0.8rem;
+  }
+  .overlay-menu {
+    top: 26px;
+  }
+  #zoom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #zoom .list-part1,
+  #zoom .list-part2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
   .hero-section {
     margin-top: 100px;
@@ -2085,6 +2199,10 @@ nav {
     flex-direction: column;
     text-align: center;
   }
+  .doubleLines::before,
+  .doubleLines::after {
+    width: 40px;
+  }
 }
 @media only screen and (max-width: 350px) {
   .container-game-details-title {
@@ -2092,6 +2210,9 @@ nav {
   }
   .container-game-details-title h3 {
     font-size: 3.5vw !important;
+  }
+  .search-bar input[type=text].expanded {
+    width: 150px;
   }
 }
 

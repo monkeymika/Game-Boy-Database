@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				<button type="submit">Login</button>
 			</form>
 			<p class="modal-links">
-				<a href="#" id="linkToRegister">Not member yet? Register here!</a>
+				<a href="./html/register.html">Not member yet? Register here!</a>
 			</p>
 			<p class="modal-links">
 				<a href="#" onclick="alert('Functionality to be implemented'); return false;">Forgotten password?</a>

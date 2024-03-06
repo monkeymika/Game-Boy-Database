@@ -32,7 +32,7 @@
   .news-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    padding: 2rem 2rem;
+    padding: 4rem 2rem;
 
     .news-card {
       img {
@@ -97,13 +97,44 @@
   nav {
     padding: 1em 2em;
   }
+
+  //Lines
+  .doubleLines::before,
+  .doubleLines::after {
+    width: 80px;
+  }
 }
 /************************* Small Mobile Screen ****************************/
 @media only screen and (max-width: 500px) {
+  // Search-bar
+  // .search-bar input[type="text"].expanded,
+  // .search-bar button {
+  //   height: 30px;
+  // }
   //Nav
+  .logo img {
+    width: 120px;
+  }
   nav {
     padding: 0.8rem;
   }
+
+  .overlay-menu {
+    top: 26px;
+  }
+
+  #zoom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .list-part1,
+    .list-part2 {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
   //Hero Section
   .hero-section {
     margin-top: 100px;
@@ -218,6 +249,12 @@
       text-align: center;
     }
   }
+
+  //Lines
+  .doubleLines::before,
+  .doubleLines::after {
+    width: 40px;
+  }
 }
 
 // xxtra small Device
@@ -229,5 +266,9 @@
     h3 {
       font-size: 3.5vw !important;
     }
+  }
+
+  .search-bar input[type="text"].expanded {
+    width: 150px;
   }
 }
