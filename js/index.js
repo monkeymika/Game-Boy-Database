@@ -276,7 +276,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		addCloseEvent(); // Réajouter les écouteurs d'événement après avoir restauré le contenu original
 		// Réassocier les événements aux boutons Login et Register
 		document.getElementById("loginBtn").onclick = showLoginForm;
-		document.getElementById("registerBtn").onclick = showRegisterForm;
 	}
 
 	function setModalContent(content) {
@@ -311,47 +310,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 
-
-
-	function showRegisterForm() {
-		setModalContent(`
-            <span class="userClose">&times;</span>
-            <div class="back-arrow"><i class="fa-solid fa-arrow-left"></i></div>
-			<img class="modal-img" src="./images/rockmanLogin_GB-database.png" alt="">
-            <form class="modal-form">
-                <input type="text" placeholder="User Name" name="user-name">
-                <input type="password" placeholder="Password" name="password">
-                <input type="password" placeholder="Confirm Password" name="confirm-password">
-                <input type="email" placeholder="Email" name="email">
-                <select name="country">
-				<option value="">Select Country</option>
-				<option value="Australia">Australia</option>
-				<option value="Belgium">Belgium</option>
-				<option value="Brazil">Brazil</option>
-				<option value="Canada">Canada</option>
-				<option value="China">China</option>
-				<option value="France">France</option>
-				<option value="Germany">Germany</option>
-				<option value="Italy">Italy</option>
-				<option value="Japan">Japan</option>
-				<option value="Netherlands">Netherlands</option>
-				<option value="Spain">Spain</option>
-				<option value="Sweden">Sweden</option>
-				<option value="Switzerland">Switzerland</option>
-				<option value="UK">UK</option>
-				<option value="USA">USA</option>
-				<option value="Other">Other country</option>
-                </select>
-                <button type="submit">Register</button>
-            </form>
-        `);
-	}
-
 	// Réassocier les événements initiaux aux boutons
 	document.getElementById("loginBtn").onclick = showLoginForm;
 	document.getElementById("registerBtn").onclick = showRegisterForm;
 });
-
 
 
 

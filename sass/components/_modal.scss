@@ -120,7 +120,8 @@
 /* Style des boutons, ajusté pour centrer */
 #loginBtn,
 #registerBtn,
-.modal-form button {
+.modal-form button,
+.register-button {
   display: block; /* Chaque bouton occupe sa propre ligne */
   width: auto; /* Adaptation à la largeur du contenu */
   margin: 10px; /* Marge pour les espacer verticalement */
@@ -137,7 +138,7 @@
   cursor: pointer;
   &:hover {
     background: #494786;
-    transform: scale(1.09);
+    transform: scale(1.02);
   }
 }
 

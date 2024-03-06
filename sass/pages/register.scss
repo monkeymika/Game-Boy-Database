@@ -1,0 +1,139 @@
+.register-body {
+  overflow: hidden;
+  background: white;
+}
+
+.register-block {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+
+  .register-img {
+    position: relative;
+    width: 50%;
+    height: 100%;
+
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   background: linear-gradient(
+    //     290deg,
+    //     rgba(154, 34, 87, 1) 18%,
+    //     rgba(73, 71, 134, 1) 75%
+    //   );
+    //   z-index: 1;
+    //   mix-blend-mode: screen;
+    // }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .register-content {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+
+    .form-title {
+      border-bottom: 2px solid $purple-GB;
+      padding: 1rem;
+    }
+  }
+
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 20px;
+    // border-radius: 5px;
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+    width: 100%;
+    height: 450px;
+    margin: 2rem;
+    background: white;
+    font-family: "Lato", sans-serif;
+  }
+
+  .register-form input[type="text"],
+  .register-form input[type="password"],
+  .register-form input[type="email"],
+  .register-form select {
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid #ccc;
+  }
+
+  .register-button {
+    background-color: $purple-GB;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0;
+
+    &:hover {
+      background: $darkPurple-GB;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .register-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(255, 255, 255);
+        background: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.7) 18%,
+          rgba(255, 255, 255, 0.7) 75%
+        );
+        z-index: 1;
+        mix-blend-mode: screen;
+      }
+    }
+
+    .register-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      z-index: 1;
+    }
+
+    .register-form {
+      border-radius: 15px;
+    }
+  }
+}
