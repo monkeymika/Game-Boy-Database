@@ -1,9 +1,19 @@
 .container-nav-user {
   display: flex;
+  align-items: center;
 }
 
 .container-user {
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    .fa-user {
+      transform: scale(1.05);
+      background: white;
+      color: $purple-GB;
+    }
+  }
 }
 
 .fa-user {
@@ -11,6 +21,7 @@
   border-radius: 50%;
   color: white;
   background: $purple-GB;
+  transition: 0.2s ease-in-out;
 }
 
 /* Navbar scroll animation*/
@@ -78,7 +89,7 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 1em 1.5em;
-  background: rgba(155, 155, 155, 0.25);
+  background: $purple-GB;
   border-radius: 0.25em;
   outline: none;
   height: 20px;
@@ -94,7 +105,7 @@ nav {
   width: 28px;
   height: 1.5px;
   position: absolute;
-  background: $purple-GB;
+  background: white;
   transition: all 250ms ease-out;
   will-change: transform;
 }
@@ -116,13 +127,18 @@ nav {
   transform: translateY(0) rotate(-45deg);
 }
 
-.burge:hover:before,
-.burge:hover:after {
-  background: black;
+.burger:hover {
+  background: rgba(
+    255,
+    255,
+    255,
+    1
+  ); /* Change le background de .burger en blanc */
 }
 
-.burger:hover {
-  background: rgba(255, 255, 255, 1);
+.burger:hover:before,
+.burger:hover:after {
+  background: $purple-GB;
 }
 
 /********* Menu overlay **************/

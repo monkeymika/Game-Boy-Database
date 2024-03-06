@@ -1433,89 +1433,62 @@ hr {
   }
 }
 
-.container-blocks {
-  --auto-grid-min-size: 20rem;
-  padding: 3rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
-  grid-gap: 3rem;
-  text-align: center;
-}
-
-.block-data {
-  background: white;
-  border-radius: 15px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.database-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem;
-}
-
-.database-title-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.database-title-content h2,
-.database-title-content p {
-  margin-bottom: 10px;
-}
-
-.see-more {
-  background: #9a2257;
-  color: white;
-  padding: 0.8rem;
-  border-radius: 25px;
-  text-transform: uppercase;
-  transition: 0.2s;
-  cursor: pointer;
-  margin-top: 1rem;
-  font-size: clamp(0.6rem, 0.5rem + 0.5vw, 0.8rem);
-  font-family: "Lato", sans-serif;
-}
-.see-more:hover {
-  background: #494786;
-  transform: scale(1.02);
-}
-
-.database-img {
-  width: 150px;
-}
-.database-img img {
+.table-responsive {
   width: 100%;
-  height: 100%;
+  overflow-x: auto; /* Assure la défilement sur les petits écrans */
+  font-family: "Lato", sans-serif;
+  padding: 2rem;
 }
 
-@media only screen and (max-width: 783px) {
-  .block-data {
-    margin: 0 auto;
-    max-width: 500px;
-    margin-bottom: 1.5rem;
-  }
-  .container-blocks {
-    display: block;
-  }
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
-@media only screen and (max-width: 500px) {
-  .database-img {
-    width: 120px;
+
+th,
+td {
+  text-align: center;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+th:first-child {
+  border-top-left-radius: 10px;
+}
+
+th:last-child {
+  border-top-right-radius: 10px;
+}
+
+thead {
+  background-color: #494786;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* Stripe rows */
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #dfdfdf;
+}
+
+.table-image {
+  width: 80px; /* ou la taille que vous souhaitez */
+  height: auto; /* pour maintenir l'aspect ratio de l'image */
+}
+
+@media only screen and (max-width: 400px) {
+  .table-responsive {
+    padding: 0;
   }
-  .database-img img {
-    width: 100%;
-    height: 100%;
+  th:first-child {
+    border-top-left-radius: 0;
   }
-  .block-data {
-    max-width: 400px;
-  }
-  .container-blocks {
-    padding: 8px;
+  th:last-child {
+    border-top-right-radius: 0;
   }
 }
 .team-title {
@@ -1592,10 +1565,17 @@ hr {
 /*********************** Layouts ************************/
 .container-nav-user {
   display: flex;
+  align-items: center;
 }
 
 .container-user {
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.container-user:hover .fa-user {
+  transform: scale(1.05);
+  background: white;
+  color: #9a2257;
 }
 
 .fa-user {
@@ -1603,6 +1583,7 @@ hr {
   border-radius: 50%;
   color: white;
   background: #9a2257;
+  transition: 0.2s ease-in-out;
 }
 
 /* Navbar scroll animation*/
@@ -1666,7 +1647,7 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 1em 1.5em;
-  background: rgba(155, 155, 155, 0.25);
+  background: #9a2257;
   border-radius: 0.25em;
   outline: none;
   height: 20px;
@@ -1682,7 +1663,7 @@ nav {
   width: 28px;
   height: 1.5px;
   position: absolute;
-  background: #9a2257;
+  background: white;
   transition: all 250ms ease-out;
   will-change: transform;
 }
@@ -1704,13 +1685,13 @@ nav {
   transform: translateY(0) rotate(-45deg);
 }
 
-.burge:hover:before,
-.burge:hover:after {
-  background: black;
+.burger:hover {
+  background: rgb(255, 255, 255); /* Change le background de .burger en blanc */
 }
 
-.burger:hover {
-  background: rgb(255, 255, 255);
+.burger:hover:before,
+.burger:hover:after {
+  background: #9a2257;
 }
 
 /********* Menu overlay **************/

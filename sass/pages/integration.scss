@@ -1,94 +1,56 @@
-.container-blocks {
-  --auto-grid-min-size: 20rem;
-  padding: 3rem;
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(var(--auto-grid-min-size), 1fr)
-  );
-  grid-gap: 3rem;
-  text-align: center;
-}
-
-.block-data {
-  background: white;
-  // max-width: 500px;
-  // margin: 2rem auto;
-  border-radius: 15px;
-  @include box-shadow;
-}
-.database-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem;
-}
-
-.database-title-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  h2,
-  p {
-    margin-bottom: 10px;
-  }
-}
-
-.see-more {
-  background: $purple-GB;
-  color: white;
-  padding: 0.8rem;
-  border-radius: 25px;
-  text-transform: uppercase;
-  transition: 0.2s;
-  cursor: pointer;
-  margin-top: 1rem;
-  font-size: clamp(0.6rem, 0.5rem + 0.5vw, 0.8rem);
+.table-responsive {
+  width: 100%;
+  overflow-x: auto; /* Assure la défilement sur les petits écrans */
   font-family: "Lato", sans-serif;
-
-  &:hover {
-    background: $darkPurple-GB;
-    transform: scale(1.02);
-  }
+  padding: 2rem;
 }
 
-.database-img {
-  width: 150px;
-  img {
-    width: 100%;
-    height: 100%;
-  }
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-@media only screen and (max-width: 783px) {
-  .block-data {
-    margin: 0 auto;
-    max-width: 500px;
-    margin-bottom: 1.5rem;
-  }
-
-  .container-blocks {
-    display: block;
-  }
+th,
+td {
+  text-align: center;
+  padding: 8px;
+  vertical-align: middle;
 }
 
-@media only screen and (max-width: 500px) {
-  .database-img {
-    width: 120px;
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
+th:first-child {
+  border-top-left-radius: 10px;
+}
+th:last-child {
+  border-top-right-radius: 10px;
+}
 
-  .block-data {
-    max-width: 400px;
-  }
+thead {
+  background-color: $darkPurple-GB;
+  color: white;
+  text-transform: uppercase;
+}
 
-  .container-blocks {
-    padding: 8px;
+/* Stripe rows */
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+tbody tr:nth-child(even) {
+  background-color: #dfdfdf;
+}
+
+.table-image {
+  width: 80px; /* ou la taille que vous souhaitez */
+  height: auto; /* pour maintenir l'aspect ratio de l'image */
+}
+
+@media only screen and (max-width: 400px) {
+  .table-responsive {
+    padding: 0;
+  }
+  th:first-child {
+    border-top-left-radius: 0;
+  }
+  th:last-child {
+    border-top-right-radius: 0;
   }
 }
