@@ -3,6 +3,8 @@
   overflow-x: auto; /* Assure la défilement sur les petits écrans */
   font-family: "Lato", sans-serif;
   padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 table {
@@ -17,11 +19,24 @@ td {
   vertical-align: middle;
 }
 
-th:first-child {
-  border-top-left-radius: 10px;
+/* Appliquer un bord arrondi sur le coin supérieur gauche du premier <td> du premier <tr> */
+tbody tr:first-child td:first-child {
+  border-top-left-radius: 15px;
 }
-th:last-child {
-  border-top-right-radius: 10px;
+
+/* Appliquer un bord arrondi sur le coin supérieur droit du dernier <td> du premier <tr> */
+tbody tr:first-child td:last-child {
+  border-top-right-radius: 15px;
+}
+
+/* Appliquer un bord arrondi sur le coin inférieur gauche du premier <td> du dernier <tr> */
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 15px;
+}
+
+/* Appliquer un bord arrondi sur le coin inférieur droit du dernier <td> du dernier <tr> */
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 15px;
 }
 
 thead {
@@ -32,7 +47,7 @@ thead {
 
 /* Stripe rows */
 tbody tr:nth-child(odd) {
-  background-color: #f9f9f9;
+  background-color: #cacaca;
 }
 tbody tr:nth-child(even) {
   background-color: #dfdfdf;
