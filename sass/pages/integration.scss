@@ -1,71 +1,98 @@
-.table-responsive {
-  width: 100%;
-  overflow-x: auto; /* Assure la défilement sur les petits écrans */
-  font-family: "Lato", sans-serif;
-  padding: 2rem;
-  max-width: 1200px;
+.integration {
+  margin-top: 150px;
+}
+.block-data {
+  // background: white;
+  // max-width: 500px;
+  // margin: 2rem auto;
+  border-radius: 15px;
+  @include box-shadow;
+  max-width: 500px;
   margin: 0 auto;
+  background: white;
+}
+.database-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2rem;
+  padding: 1rem;
+  margin: 2rem;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th,
-td {
+.database-title-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: 8px;
-  vertical-align: middle;
+
+  h2,
+  p {
+    margin-bottom: 10px;
+  }
 }
 
-/* Appliquer un bord arrondi sur le coin supérieur gauche du premier <td> du premier <tr> */
-tbody tr:first-child td:first-child {
-  border-top-left-radius: 15px;
-}
-
-/* Appliquer un bord arrondi sur le coin supérieur droit du dernier <td> du premier <tr> */
-tbody tr:first-child td:last-child {
-  border-top-right-radius: 15px;
-}
-
-/* Appliquer un bord arrondi sur le coin inférieur gauche du premier <td> du dernier <tr> */
-tbody tr:last-child td:first-child {
-  border-bottom-left-radius: 15px;
-}
-
-/* Appliquer un bord arrondi sur le coin inférieur droit du dernier <td> du dernier <tr> */
-tbody tr:last-child td:last-child {
-  border-bottom-right-radius: 15px;
-}
-
-thead {
-  background-color: $darkPurple-GB;
+.see-more {
+  background: $purple-GB;
   color: white;
+  padding: 0.8rem;
+  border-radius: 25px;
   text-transform: uppercase;
-}
+  transition: 0.2s;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: clamp(0.6rem, 0.5rem + 0.5vw, 0.8rem);
+  font-family: "Lato", sans-serif;
 
-/* Stripe rows */
-tbody tr:nth-child(odd) {
-  background-color: #cacaca;
-}
-tbody tr:nth-child(even) {
-  background-color: #dfdfdf;
-}
-
-.table-image {
-  width: 80px; /* ou la taille que vous souhaitez */
-  height: auto; /* pour maintenir l'aspect ratio de l'image */
-}
-
-@media only screen and (max-width: 400px) {
-  .table-responsive {
-    padding: 0;
+  &:hover {
+    background: $darkPurple-GB;
+    transform: scale(1.02);
   }
-  th:first-child {
-    border-top-left-radius: 0;
+}
+
+.database-img {
+  width: 150px;
+  img {
+    width: 100%;
+    height: 100%;
   }
-  th:last-child {
-    border-top-right-radius: 0;
+}
+
+@media only screen and (max-width: 783px) {
+  .block-data {
+    margin: 0 auto;
+    max-width: 500px;
+    margin-bottom: 1.5rem;
+  }
+
+  .container-blocks {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .database-img {
+    width: 100px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .block-data {
+    max-width: 100%;
+  }
+
+  .container-blocks {
+    padding: 8px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .database-container {
+    flex-direction: column;
+  }
+
+  .database-img {
+    width: 100%;
   }
 }
