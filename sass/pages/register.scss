@@ -52,6 +52,20 @@
     .form-title {
       border-bottom: 2px solid $purple-GB;
       padding: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .success-message {
+      background: $green-GB;
+      color: white;
+      padding: 8px;
+      border-radius: 15px;
+    }
+    .error-message {
+      background: rgb(170, 3, 3);
+      color: white;
+      padding: 8px;
+      border-radius: 15px;
     }
   }
 
@@ -75,9 +89,13 @@
   .register-form input[type="password"],
   .register-form input[type="email"],
   .register-form select {
-    padding: 10px;
+    padding: 5px;
     border-radius: 25px;
     border: 2px solid #ccc;
+  }
+
+  .register-form input[type="file"] {
+    border: none;
   }
 
   .register-button {

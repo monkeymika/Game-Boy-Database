@@ -6,6 +6,17 @@
 .container-user {
   cursor: pointer;
   transition: 0.2s ease-in-out;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 0.5rem;
+
+  img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 
   &:hover {
     .fa-user {
@@ -13,6 +24,25 @@
       background: white;
       color: $purple-GB;
     }
+  }
+
+  .success-message {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: "Press Start 2P", system-ui;
+  }
+}
+
+@media (max-width: 500px) {
+  .container-user {
+    img {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  .success-message {
+    font-size: 2.5vw;
   }
 }
 
@@ -253,10 +283,36 @@ nav {
   }
 }
 
+/*carré fullset*/
+.fullsetList-part1,
+.fullsetList-part2,
+.fullsetList-part3,
+.fullsetList-part4 {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+
+  a {
+    position: relative; // Pour le positionnement absolu des pseudo-éléments
+    background: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    color: black;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      background: rgb(231, 231, 231);
+      transform: scale(1.01);
+    }
+  }
+}
+
 // Ajout de styles pour les pseudo-éléments avec des couleurs spécifiques
 // Styles pour #fullset-list
 #fullset-list {
-  .list-part1 {
+  .fullsetList-part1 {
     a {
       &::after {
         content: "";
@@ -286,7 +342,7 @@ nav {
       }
     }
   }
-  .list-part2 {
+  .fullsetList-part2 {
     a {
       &::after {
         content: "";
@@ -313,11 +369,8 @@ nav {
       }
     }
   }
-}
 
-// Styles pour #fullset-list-part2
-#fullset-list-part2 {
-  .list-part1 {
+  .fullsetList-part3 {
     a {
       &::after {
         content: "";
@@ -344,7 +397,7 @@ nav {
       }
     }
   }
-  .list-part2 {
+  .fullsetList-part4 {
     a {
       &::after {
         content: "";
@@ -491,6 +544,6 @@ nav {
   height: 50px;
 }
 
-.search-bar button.expanded {
+.search-bar button.submit-button {
   border-radius: 0 15px 15px 0;
 }

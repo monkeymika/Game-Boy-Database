@@ -45,14 +45,15 @@ body {
   // flex-direction: column;
   // min-height: 100vh;
   background-image: linear-gradient(
-      rgb(241 241 241 / 90%),
-      rgb(255 255 255 / 80%)
+      rgba(241, 241, 241, 0.5),
+      rgba(255, 255, 255, 0.932)
     ),
-    url(../../images/testBackgroundGB.gif);
+    url(./images/robotGB.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: top;
   overflow-x: hidden;
+  background-attachment: fixed;
 }
 
 .main-style {

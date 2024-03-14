@@ -84,18 +84,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
 	let searchInput = document.querySelector('.search-bar input[type="text"]');
-	let searchButton = document.querySelector('.search-bar .search-button');
+	let expandButton = document.querySelector('.search-bar .expand-button');
+	let submitButton = document.querySelector('.search-bar .submit-button');
 
-	searchButton.addEventListener('click', function () {
+	expandButton.addEventListener('click', function () {
 		if (!searchInput.classList.contains('expanded')) {
 			searchInput.classList.add('expanded');
 			searchInput.focus();
-			searchButton.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
-			searchButton.type = 'submit'; // Change le type pour soumettre le formulaire
-			searchButton.style.borderRadius = '0 15px 15px 0'; // Modifie le style du bouton lors de la transformation
+			expandButton.style.display = 'none'; // Cache le bouton d'expansion
+			submitButton.style.display = 'block'; // Affiche le bouton de soumission
 		}
 	});
 });
+
 
 
 /*NavBar animation on scroll */
@@ -226,43 +227,73 @@ document.addEventListener('DOMContentLoaded', function () {
 	var btn = document.querySelector(".container-user");
 	var span = document.getElementsByClassName("userClose")[0];
 
-	// Lorsque l'utilisateur clique sur container-user, ouvre la modale
 	btn.onclick = function () {
 		modal.style.display = "flex";
-	}
+	};
 
-	// Lorsque l'utilisateur clique sur <span> (x), ferme la modale
 	span.onclick = function () {
 		modal.style.display = "none";
-	}
+	};
 
-	// Lorsque l'utilisateur clique n'importe où en dehors de la modale, ferme-la
 	window.onclick = function (event) {
 		if (event.target == modal) {
 			modal.style.display = "none";
 		}
-	}
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-	var modal = document.getElementById("userModal");
-	var modalContent = document.querySelector(".userModal-content");
-	// Stocker le contenu original de la modal
-	var originalContent = modalContent.innerHTML;
+	};
 
 	function closeModal() {
 		modal.style.display = "none";
 	}
 
-	function openModal() {
-		modal.style.display = "flex";
+	function handleLoginSubmit(event) {
+		event.preventDefault();
+
+		var formData = new FormData(event.target);
+
+		fetch("html/login.php", {
+			method: 'POST',
+			body: formData
+		})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					closeModal();
+					window.location.href = "index.php";
+				} else {
+					// Assurez-vous que l'élément .login-error-message est visible dans le HTML généré
+					var errorElement = document.querySelector(".login-error-message");
+					if (errorElement) {
+						errorElement.innerText = data.errorMessage;
+						errorElement.style.display = 'block';
+					}
+				}
+			})
+			.catch(error => console.error('Erreur:', error));
 	}
 
-	function addCloseEvent() {
-		var span = document.querySelector(".userClose");
-		span.onclick = closeModal;
+	function showLoginForm() {
+		setModalContent(`
+            <span class="userClose">&times;</span>
+            <img class="modal-img" src="./images/rockmanLogin_GB-database.png" alt="">
+            <div class="login-error-message" style="display: none; color: red;"></div>
+            <form class="modal-form" action="html/login.php" method="post">
+                <input type="text" placeholder="User Name" name="username">
+                <input type="password" placeholder="Password" name="password">
+                <button type="submit">Login</button>
+            </form>
+            <p class="modal-links">
+                <a href="./html/register.php">Not member yet? Register here!</a>
+            </p>
+            <p class="modal-links">
+                <a href="#" onclick="alert('Functionality to be implemented'); return false;">Forgotten password?</a>
+            </p>
+        `);
+		document.querySelector(".modal-form").addEventListener('submit', handleLoginSubmit);
+	}
+
+	function setModalContent(content) {
+		modal.querySelector(".userModal-content").innerHTML = content;
+		modal.querySelector(".userClose").onclick = closeModal;
 		window.onclick = function (event) {
 			if (event.target == modal) {
 				closeModal();
@@ -270,50 +301,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		};
 	}
 
-	// Fonction pour restaurer le contenu original de la modal
-	function restoreOriginalContent() {
-		modalContent.innerHTML = originalContent;
-		addCloseEvent(); // Réajouter les écouteurs d'événement après avoir restauré le contenu original
-		// Réassocier les événements aux boutons Login et Register
-		document.getElementById("loginBtn").onclick = showLoginForm;
-	}
-
-	function setModalContent(content) {
-		modalContent.innerHTML = content;
-		addCloseEvent(); // Réajoute l'écouteur sur la croix à chaque changement de contenu
-		// Ajouter la flèche de retour avec l'événement pour restaurer le contenu original
-		document.querySelector(".back-arrow").onclick = restoreOriginalContent;
-	}
-
-	function showLoginForm() {
-		setModalContent(`
-			<span class="userClose">&times;</span>
-			<div class="back-arrow"><i class="fa-solid fa-arrow-left"></i></div>
-			<img class="modal-img" src="./images/rockmanLogin_GB-database.png" alt="">
-			<form class="modal-form">
-				<input type="text" placeholder="User Name" name="user-name">
-				<input type="password" placeholder="Password" name="password">
-				<button type="submit">Login</button>
-			</form>
-			<p class="modal-links">
-				<a href="./html/register.html">Not member yet? Register here!</a>
-			</p>
-			<p class="modal-links">
-				<a href="#" onclick="alert('Functionality to be implemented'); return false;">Forgotten password?</a>
-			</p>
-		`);
-
-		// Ajout de l'écouteur d'événements pour le lien d'inscription
-		document.getElementById("linkToRegister").addEventListener('click', function (event) {
-			event.preventDefault(); // Empêche le comportement par défaut du lien
-			showRegisterForm(); // Affiche le formulaire d'inscription
-		});
-	}
-
-	// Réassocier les événements initiaux aux boutons
 	document.getElementById("loginBtn").onclick = showLoginForm;
-	document.getElementById("registerBtn").onclick = showRegisterForm;
 });
 
+
+//connexion user
 
 

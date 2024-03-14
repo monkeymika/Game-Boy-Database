@@ -1,5 +1,11 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,34 +21,291 @@
 
 <body>
   <header>
-   
-    <? include "inc/menu.php"; ?>
+    <!-- NavBar-->
+    <nav>
+      <div class="logo">
+        <img src="./images/logo.png" alt="">
+      </div>
+
+      <!-- <div class="logo-main">
+        <img src="./images/text-logoGB_pink.png" alt="">
+      </div> -->
+      <div class="container-nav-user">
+        <div class="toggle-btn">
+          <button class="burger" onclick="this.classList.toggle('active')">
+          </button>
+        </div>
+
+        <div class="container-user">
+        <?php
+            // Afficher les messages d'erreur de connexion
+            if (isset($_SESSION['error'])) {
+              echo '<div class="error-message">' . $_SESSION['error'] . '</div>';
+              // Après l'affichage, supprimez le message d'erreur de la session pour qu'il ne réapparaisse pas après un rafraîchissement de la page
+              unset($_SESSION['error']);
+            }
+
+            // Afficher un message de succès si l'utilisateur s'est connecté avec succès
+            if (isset($_SESSION['user'])) {
+              echo '<div class="success-message">' . htmlspecialchars($_SESSION['user']['username']) . '</div>';
+              // Vous pourriez également rediriger l'utilisateur ou changer l'affichage selon que l'utilisateur est connecté
+            }
+          ?>
+
+
+
+
+          <?php if (isset($_SESSION['user']) && isset($_SESSION['user']['profile-image'])): ?>
+          <img src="profile-images/<?php echo htmlspecialchars($_SESSION['user']['profile-image']); ?>"
+            alt="Profile Image">
+          <?php else: ?>
+          <i class="fa-solid fa-user"></i>
+          <?php endif; ?>
+
+          
+
+        </div>
+
+
+
+
+        <!-- User Modals-->
+
+        <div id="userModal" class="userModal">
+          <div class="userModal-content">
+            <?php if (isset($_SESSION['user'])): ?>
+            <!-- Contenu de la modal pour l'utilisateur connecté -->
+            <?php if (isset($_SESSION['user']) && isset($_SESSION['user']['profile-image'])): ?>
+          <img src="profile-images/<?php echo htmlspecialchars($_SESSION['user']['profile-image']); ?>"
+            alt="Profile Image">
+          <?php else: ?>
+          <i class="fa-solid fa-user"></i>
+          <?php endif; ?>
+            <span class="userClose">&times;</span>
+            <div class="connected-modal">
+              <p>Welcome,
+                <?php echo htmlspecialchars($_SESSION['user']['username']); ?>!
+              </p>
+              <a href="my_collection.php">My Collection</a>
+              <a href="my_profile.php">My Profile</a>
+              <a href="html/logout.php">Log Out</a>
+            </div>
+            <?php else: ?>
+            <!-- Contenu de la modal pour l'utilisateur non connecté -->
+            <img class="modal-img" src="./images/rockmanLogin_GB-database.png" alt="Login Image">
+            <p class="login-text">Welcome Back, Hero!
+              Ready to continue your adventure? Log in to access your saved games and pick up right where you left off.
+              Not yet part of our community? Click 'Register' to join and start your journey with us. Let's play!
+            </p>
+            <span class="userClose">&times;</span>
+            <button id="loginBtn">Login</button>
+            <a href="html/register.php" class="register-button">Register</a>
+            <?php endif; ?>
+          </div>
+        </div>
+
+
+        <!-- User Modals End-->
+
+
+      </div>
+
+    </nav>
+
+    <div class="overlay">
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+    </div>
+
+    <div class="overlay-menu">
+      <!-- <div class="menu-title">
+        <p>menu</p>
+      </div> -->
+
+      <form action="search_game.php" method="post" class="search-bar">
+        <input type="text" placeholder="Search..." name="search">
+        <button type="button" class="search-button expand-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button type="submit" class="search-button submit-button" style="display: none;"><i
+            class="fa-solid fa-arrow-right"></i></button>
+      </form>
+
+
+
+      <div class="container-menu-item">
+
+        <div class="menu-item">
+          <div class="menu-item-name">
+            <div class="item-toggle toggle-title">
+              <p class="title-list">Fullsets<i class="fa-solid fa-sort-down"></i></p>
+
+            </div>
+            <ul id="fullset-list" class="hidden toggle-content">
+              <div class="fullsetList-part1">
+                <a href="../pages/fullset-ASI.html">
+                  <li class="items__sub__list">ASI</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">AUS</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">CAN</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">CHN</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">ESP</li>
+                </a>
+              </div>
+              <div class="fullsetList-part2">
+                <a href="#">
+                  <li class="items__sub__list">EUR</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">FAH</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">FRA</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">FRG</li>
+                </a>
+              </div>
+              <div class="fullsetList-part3">
+                <a href="../pages/fullset-ASI.html">
+                  <li class="items__sub__list ">GPS</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">HOL</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">ITA</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">JPN</li>
+                </a>
+              </div>
+              <div class="fullsetList-part4">
+                <a href="#">
+                  <li class="items__sub__list">NOE</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">SCN</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">UKV</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">USA</li>
+                </a>
+              </div>
+            </ul>
+          </div>
+        </div>
+
+
+
+        <div class="menu-item">
+          <div class="menu-item-name">
+            <div class="item-toggle toggle-title">
+              <p class=" title-list">Zoom On<i class="fa-solid fa-sort-down"></i></p>
+
+            </div>
+            <ul id="zoom" class="hidden toggle-content">
+              <div class="list-part1">
+                <a href="../pages/fullset-ASI.html">
+                  <li class="items__sub__list">Ads & Catalog</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Dig into the database</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Zoom on Companies</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Clasic Disney</li>
+                </a>
+
+
+              </div>
+              <div class="list-part2">
+                <a href="#">
+                  <li class="items__sub__list">Ocean budget white boxes</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Player's choice</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Timeline Listing</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Loose Collection</li>
+                </a>
+
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-name">
+            <div class="item-toggle toggle-title">
+              <p class=" title-list">About<i class="fa-solid fa-sort-down"></i></p>
+
+            </div>
+            <ul id="about" class="hidden toggle-content">
+              <div class="list-part1">
+                <a href="../pages/fullset-ASI.html">
+                  <li class="items__sub__list">How can you help ?</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">Statistics</li>
+                </a>
+                <a href="#">
+                  <li class="items__sub__list">The Team</li>
+                </a>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Hero Section -->
 
     <div class="hero-section">
       <div class="hero-content">
+        <!-- Le h1 aura l'animation de "slide in from top" -->
         <h1>Welcome to <br> Game Boy Database</h1>
+        <!-- Le texte en italique aura également l'animation avec un délai -->
         <p class="italic-text">A site for All Collectors</p>
-        <p>Initially launched by a collector, the site aims to reference all possible versions of each game. The
-          project is community-based, currently primarily managed at the IT level by Guilh, Eegbor, RPGHCG, and Unexist.. We
-          don't own everything. Do not hesitate to send us scans, photos, information on the email below .... We will
-          be happy to share them. Excellent visit.</p>
+        <!-- Le paragraphe aura l'animation avec un délai plus long -->
+        <p>Initially launched by a collector, the site aims to reference all possible versions of each game. The project
+          is community-based, currently primarily managed at the IT level by Guilh, Eegbor, RPGHCG, and Unexist.. We
+          don't own everything. Do not hesitate to send us scans, photos, information on the email below .... We will be
+          happy to share them. Excellent visit.</p>
+        <!-- Le bouton aura l'animation avec le délai le plus long -->
         <div class="btn-hero-container">
           <a href="" class="btn-hero">
             See The Database
           </a>
-
         </div>
       </div>
-      <img src="./images/gameboy_simple.png" alt="">
+      <!-- L'image de la Game Boy aura son propre effet d'animation en glissant de la droite -->
+      <img src="./images/gameboy_simple.png" alt="" class="gameboy-image">
     </div>
+
   </header>
 
-  <main>
+  <main class="main-style">
     <section class="birthday">
-      <div class="section-title">
-        <h2>Happy birthday to these game</h2>
-      </div>
+
+      <h2 class="doubleLines">Happy birthday to these game</h2>
+
       <div class="posts">
         <article>
           <a href="#">
@@ -122,7 +385,7 @@
 
     <section class="news">
       <div class="section-title">
-        <h2>News from the database</h2>
+        <h2 class="doubleLines">News from the database</h2>
       </div>
       <div class="news-container">
         <article class="news-card">
@@ -200,7 +463,7 @@
 
     <section class="last-game-added-section">
       <div class="section-title">
-        <h2>Last Games Added</h2>
+        <h2 class="doubleLines">Last Games Added</h2>
       </div>
       <div class="container swiper">
         <div class="slide-container">
@@ -296,7 +559,7 @@
 
     <section class="most-seen-on-database">
       <div class="section-title">
-        <h2>Most Seen on the Database</h2>
+        <h2 class="doubleLines">Most Seen on the Database</h2>
       </div>
       <div class="container swiper">
         <div class="slide-container">
@@ -392,93 +655,95 @@
 
     <section class="last-comments">
       <div class="section-title">
-        <h2>Lasts Comments</h2>
+        <h2 class="doubleLines">Lasts Comments</h2>
       </div>
-      <div class="container-comments">
-        <div class="game-about">
-          <h3>Mario Golf</h3>
-        </div>
-        <div class="container-data">
-          <div class="comments-img">
-            <img src="./images/profilRPGHCG.jpg" alt="profil image">
-            <div class="user-name-container">
-              <h4 class="user-name">RpgHcg</h4>
+      <div class="block-comments">
+        <div class="container-comments">
+          <div class="game-about">
+            <h3>Mario Golf</h3>
+          </div>
+          <div class="container-data">
+            <div class="comments-img">
+              <img src="./images/profilRPGHCG.jpg" alt="profil image">
+              <div class="user-name-container">
+                <h4 class="user-name">RpgHcg</h4>
+              </div>
+            </div>
+            <div class="comments-content">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium perferendis expedita dignissimos
+                accusamus nihil consequuntur ducimus eius repellendus dolorum porro.</p>
             </div>
           </div>
-          <div class="comments-content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium perferendis expedita dignissimos
-              accusamus nihil consequuntur ducimus eius repellendus dolorum porro.</p>
+          <div class="date-comments">
+            <p class="date">11/20/13 12:00 pm</p>
           </div>
         </div>
-        <div class="date-comments">
-          <p class="date">11/20/13 12:00 pm</p>
-        </div>
-      </div>
-      <div class="container-comments">
-        <div class="game-about">
-          <h3>Mario Golf</h3>
-        </div>
-        <div class="container-data">
-          <div class="comments-img">
-            <img src="./images/profilRPGHCG.jpg" alt="profil image">
-            <div class="user-name-container">
-              <h4 class="user-name">RpgHcg</h4>
+        <div class="container-comments">
+          <div class="game-about">
+            <h3>Mario Golf</h3>
+          </div>
+          <div class="container-data">
+            <div class="comments-img">
+              <img src="./images/profilRPGHCG.jpg" alt="profil image">
+              <div class="user-name-container">
+                <h4 class="user-name">RpgHcg</h4>
+              </div>
+            </div>
+            <div class="comments-content">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium perferendis expedita dignissimos
+                accusamus nihil consequuntur ducimus eius repellendus dolorum porro.</p>
             </div>
           </div>
-          <div class="comments-content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium perferendis expedita dignissimos
-              accusamus nihil consequuntur ducimus eius repellendus dolorum porro.</p>
+          <div class="date-comments">
+            <p class="date">11/20/13 12:00 pm</p>
           </div>
         </div>
-        <div class="date-comments">
-          <p class="date">11/20/13 12:00 pm</p>
-        </div>
-      </div>
-      <div class="container-comments">
-        <div class="game-about">
-          <h3>Mario Golf</h3>
-        </div>
-        <div class="container-data">
-          <div class="comments-img">
-            <img src="./images/profilRPGHCG.jpg" alt="profil image">
-            <div class="user-name-container">
-              <h4 class="user-name">RpgHcg</h4>
+        <div class="container-comments">
+          <div class="game-about">
+            <h3>Mario Golf</h3>
+          </div>
+          <div class="container-data">
+            <div class="comments-img">
+              <img src="./images/profilRPGHCG.jpg" alt="profil image">
+              <div class="user-name-container">
+                <h4 class="user-name">RpgHcg</h4>
+              </div>
+            </div>
+            <div class="comments-content">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium perferendis expedita dignissimos
+                accusamus nihil consequuntur ducimus eius repellendus dolorum porro.</p>
             </div>
           </div>
-          <div class="comments-content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium perferendis expedita dignissimos
-              accusamus nihil consequuntur ducimus eius repellendus dolorum porro.</p>
+          <div class="date-comments">
+            <p class="date">11/20/13 12:00 pm</p>
           </div>
         </div>
-        <div class="date-comments">
-          <p class="date">11/20/13 12:00 pm</p>
-        </div>
-      </div>
-      <div class="container-comments">
-        <div class="game-about">
-          <h3>Mario Golf</h3>
-        </div>
-        <div class="container-data">
-          <div class="comments-img">
-            <img src="./images/profilRPGHCG.jpg" alt="profil image">
-            <div class="user-name-container">
-              <h4 class="user-name">RpgHcg</h4>
+        <div class="container-comments">
+          <div class="game-about">
+            <h3>Mario Golf</h3>
+          </div>
+          <div class="container-data">
+            <div class="comments-img">
+              <img src="./images/profilRPGHCG.jpg" alt="profil image">
+              <div class="user-name-container">
+                <h4 class="user-name">RpgHcg</h4>
+              </div>
+            </div>
+            <div class="comments-content">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium perferendis expedita dignissimos
+                accusamus nihil consequuntur ducimus eius repellendus dolorum porro.</p>
             </div>
           </div>
-          <div class="comments-content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium perferendis expedita dignissimos
-              accusamus nihil consequuntur ducimus eius repellendus dolorum porro.</p>
+          <div class="date-comments">
+            <p class="date">11/20/13 12:00 pm</p>
           </div>
-        </div>
-        <div class="date-comments">
-          <p class="date">11/20/13 12:00 pm</p>
         </div>
       </div>
     </section>
 
     <section class="videos">
       <div class="section-title">
-        <h2>Some Videos</h2>
+        <h2 class="doubleLines">Some Videos</h2>
       </div>
 
 
@@ -579,7 +844,6 @@
       </div>
   </footer>
 
-  
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
   <!-- Font Awesome icon -->

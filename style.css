@@ -157,11 +157,12 @@ textarea {
 }
 
 body {
-  background-image: linear-gradient(rgba(241, 241, 241, 0.9), rgba(255, 255, 255, 0.8)), url(../../images/testBackgroundGB.gif);
+  background-image: linear-gradient(rgba(241, 241, 241, 0.5), rgba(255, 255, 255, 0.932)), url(./images/robotGB.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: top;
   overflow-x: hidden;
+  background-attachment: fixed;
 }
 
 .main-style .posts,
@@ -396,8 +397,8 @@ footer .copyright-wrapper {
 
 /* Ajustements pour conserver les proportions et centrer les boutons */
 .userModal-content {
-  background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond avec transparence */
-  backdrop-filter: blur(10px); /* Flou de l'arrière-plan */
+  background-color: rgb(38, 38, 38);
+  backdrop-filter: blur(10pxGB); /* Flou de l'arrière-plan */
   -webkit-backdrop-filter: blur(10px); /* Pour la compatibilité avec Safari */
   margin: 15px;
   padding: 3rem;
@@ -413,6 +414,57 @@ footer .copyright-wrapper {
   justify-content: center; /* Centrage vertical des boutons */
   align-items: center; /* Centrage horizontal des boutons */
   border: 1px solid rgba(255, 255, 255, 0.18); /* Bordure légère pour renforcer l'effet de verre */
+}
+.userModal-content img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.connected-modal {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.connected-modal p {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-family: "Press Start 2P", system-ui;
+}
+.connected-modal :nth-child(2) {
+  background: #9a2257;
+  padding: 8px;
+  border-radius: 15px;
+  transition: 0.2s;
+}
+.connected-modal :nth-child(2):hover {
+  transform: scale(1.03);
+}
+.connected-modal :nth-child(3) {
+  background: white;
+  border-radius: 15px;
+  padding: 8px;
+  color: #9a2257;
+  border: 2px solid #9a2257;
+  transition: 0.2s;
+}
+.connected-modal :nth-child(3):hover {
+  transform: scale(1.03);
+}
+.connected-modal :nth-child(4) {
+  color: rgb(214, 71, 71);
+  transition: 0.2s;
+}
+.connected-modal :nth-child(4):hover {
+  transform: scale(1.03);
+}
+.connected-modal a {
+  cursor: pointer;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
 }
 
 /* Style pour la croix de fermeture, inchangé */
@@ -476,7 +528,6 @@ footer .copyright-wrapper {
 @media screen and (max-width: 500px) {
   .userModal-content {
     width: 90vw; /* Ajustement de la largeur sur les petits écrans */
-    height: 120vw; /* Ajustement de la hauteur pour maintenir le carré */
   }
   .login-text {
     font-size: 2vw;
@@ -502,6 +553,7 @@ footer .copyright-wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 5px;
 }
 
 .modal-form input,
@@ -1363,6 +1415,19 @@ hr {
 .register-block .register-content .form-title {
   border-bottom: 2px solid #9a2257;
   padding: 1rem;
+  margin-bottom: 0.8rem;
+}
+.register-block .register-content .success-message {
+  background: #84d07d;
+  color: white;
+  padding: 8px;
+  border-radius: 15px;
+}
+.register-block .register-content .error-message {
+  background: rgb(170, 3, 3);
+  color: white;
+  padding: 8px;
+  border-radius: 15px;
 }
 .register-block .register-form {
   display: flex;
@@ -1381,9 +1446,12 @@ hr {
 .register-block .register-form input[type=password],
 .register-block .register-form input[type=email],
 .register-block .register-form select {
-  padding: 10px;
+  padding: 5px;
   border-radius: 25px;
   border: 2px solid #ccc;
+}
+.register-block .register-form input[type=file] {
+  border: none;
 }
 .register-block .register-button {
   background-color: #9a2257;
@@ -1441,7 +1509,7 @@ hr {
   border-radius: 15px;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-  max-width: 500px;
+  max-width: 800px;
   margin: 0 auto;
   background: white;
 }
@@ -1451,7 +1519,7 @@ hr {
   align-items: center;
   justify-content: space-evenly;
   gap: 2rem;
-  padding: 1rem;
+  padding: 2rem;
   margin: 2rem;
 }
 
@@ -1611,13 +1679,37 @@ hr {
 .container-user {
   cursor: pointer;
   transition: 0.2s ease-in-out;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 0.5rem;
+}
+.container-user img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 .container-user:hover .fa-user {
   transform: scale(1.05);
   background: white;
   color: #9a2257;
 }
+.container-user .success-message {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: "Press Start 2P", system-ui;
+}
 
+@media (max-width: 500px) {
+  .container-user img {
+    width: 35px;
+    height: 35px;
+  }
+  .success-message {
+    font-size: 2.5vw;
+  }
+}
 .fa-user {
   padding: 0.6rem;
   border-radius: 50%;
@@ -1844,53 +1936,37 @@ nav {
   transform: scale(1.01);
 }
 
-#fullset-list .list-part1 a::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 2px;
+/*carré fullset*/
+.fullsetList-part1,
+.fullsetList-part2,
+.fullsetList-part3,
+.fullsetList-part4 {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
 }
-#fullset-list .list-part1 a:nth-child(1)::after {
-  background-color: yellow;
+.fullsetList-part1 a,
+.fullsetList-part2 a,
+.fullsetList-part3 a,
+.fullsetList-part4 a {
+  position: relative;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: black;
+  transition: 0.2s ease-in-out;
 }
-#fullset-list .list-part1 a:nth-child(2)::after {
-  background-color: rgb(105, 22, 22);
-}
-#fullset-list .list-part1 a:nth-child(3)::after {
-  background-color: rgb(211, 211, 211);
-}
-#fullset-list .list-part1 a:nth-child(4)::after {
-  background-color: rgb(223, 37, 68);
-}
-#fullset-list .list-part1 a:nth-child(5)::after {
-  background-color: pink;
-}
-#fullset-list .list-part2 a::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 2px;
-}
-#fullset-list .list-part2 a:nth-child(1)::after {
-  background-color: rgb(151, 116, 116);
-}
-#fullset-list .list-part2 a:nth-child(2)::after {
-  background-color: orangered;
-}
-#fullset-list .list-part2 a:nth-child(3)::after {
-  background-color: rgb(228, 34, 83);
-}
-#fullset-list .list-part2 a:nth-child(4)::after {
-  background-color: rgb(14, 154, 197);
+.fullsetList-part1 a:hover,
+.fullsetList-part2 a:hover,
+.fullsetList-part3 a:hover,
+.fullsetList-part4 a:hover {
+  background: rgb(231, 231, 231);
+  transform: scale(1.01);
 }
 
-#fullset-list-part2 .list-part1 a::after {
+#fullset-list .fullsetList-part1 a::after {
   content: "";
   position: absolute;
   top: 0;
@@ -1899,37 +1975,82 @@ nav {
   height: 8px;
   border-radius: 2px;
 }
-#fullset-list-part2 .list-part1 a:nth-child(1)::after {
-  background-color: #0e0e0e;
-}
-#fullset-list-part2 .list-part1 a:nth-child(2)::after {
-  background-color: rgb(0, 0, 170);
-}
-#fullset-list-part2 .list-part1 a:nth-child(3)::after {
-  background-color: rgb(67, 165, 211);
-}
-#fullset-list-part2 .list-part1 a:nth-child(4)::after {
-  background-color: rgb(216, 216, 216);
-}
-#fullset-list-part2 .list-part2 a::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 2px;
-}
-#fullset-list-part2 .list-part2 a:nth-child(1)::after {
-  background-color: rgb(0, 0, 102);
-}
-#fullset-list-part2 .list-part2 a:nth-child(2)::after {
+#fullset-list .fullsetList-part1 a:nth-child(1)::after {
   background-color: yellow;
 }
-#fullset-list-part2 .list-part2 a:nth-child(3)::after {
+#fullset-list .fullsetList-part1 a:nth-child(2)::after {
+  background-color: rgb(105, 22, 22);
+}
+#fullset-list .fullsetList-part1 a:nth-child(3)::after {
+  background-color: rgb(211, 211, 211);
+}
+#fullset-list .fullsetList-part1 a:nth-child(4)::after {
+  background-color: rgb(223, 37, 68);
+}
+#fullset-list .fullsetList-part1 a:nth-child(5)::after {
+  background-color: pink;
+}
+#fullset-list .fullsetList-part2 a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+#fullset-list .fullsetList-part2 a:nth-child(1)::after {
+  background-color: rgb(151, 116, 116);
+}
+#fullset-list .fullsetList-part2 a:nth-child(2)::after {
+  background-color: orangered;
+}
+#fullset-list .fullsetList-part2 a:nth-child(3)::after {
+  background-color: rgb(228, 34, 83);
+}
+#fullset-list .fullsetList-part2 a:nth-child(4)::after {
+  background-color: rgb(14, 154, 197);
+}
+#fullset-list .fullsetList-part3 a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+#fullset-list .fullsetList-part3 a:nth-child(1)::after {
+  background-color: #0e0e0e;
+}
+#fullset-list .fullsetList-part3 a:nth-child(2)::after {
+  background-color: rgb(0, 0, 170);
+}
+#fullset-list .fullsetList-part3 a:nth-child(3)::after {
+  background-color: rgb(67, 165, 211);
+}
+#fullset-list .fullsetList-part3 a:nth-child(4)::after {
+  background-color: rgb(216, 216, 216);
+}
+#fullset-list .fullsetList-part4 a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+#fullset-list .fullsetList-part4 a:nth-child(1)::after {
+  background-color: rgb(0, 0, 102);
+}
+#fullset-list .fullsetList-part4 a:nth-child(2)::after {
+  background-color: yellow;
+}
+#fullset-list .fullsetList-part4 a:nth-child(3)::after {
   background-color: rgb(100, 168, 100);
 }
-#fullset-list-part2 .list-part2 a:nth-child(4)::after {
+#fullset-list .fullsetList-part4 a:nth-child(4)::after {
   background-color: rgb(155, 155, 155);
 }
 
@@ -2032,7 +2153,7 @@ nav {
   height: 50px;
 }
 
-.search-bar button.expanded {
+.search-bar button.submit-button {
   border-radius: 0 15px 15px 0;
 }
 

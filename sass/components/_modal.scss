@@ -70,8 +70,8 @@
 
 /* Ajustements pour conserver les proportions et centrer les boutons */
 .userModal-content {
-  background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond avec transparence */
-  backdrop-filter: blur(10px); /* Flou de l'arrière-plan */
+  background-color: rgb(38 38 38);
+  backdrop-filter: blur(10pxGB); /* Flou de l'arrière-plan */
   -webkit-backdrop-filter: blur(10px); /* Pour la compatibilité avec Safari */
   margin: 15px;
   padding: 3rem;
@@ -87,6 +87,63 @@
   justify-content: center; /* Centrage vertical des boutons */
   align-items: center; /* Centrage horizontal des boutons */
   border: 1px solid rgba(255, 255, 255, 0.18); /* Bordure légère pour renforcer l'effet de verre */
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+}
+
+.connected-modal {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+
+  p {
+    text-transform: uppercase;
+    font-weight: 800;
+    font-family: "Press Start 2P", system-ui;
+  }
+
+  :nth-child(2) {
+    background: $purple-GB;
+    padding: 8px;
+    border-radius: 15px;
+    transition: 0.2s;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+  :nth-child(3) {
+    background: white;
+    border-radius: 15px;
+    padding: 8px;
+    color: $purple-GB;
+    border: 2px solid $purple-GB;
+    transition: 0.2s;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+  :nth-child(4) {
+    color: rgb(214, 71, 71);
+    transition: 0.2s;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
+  a {
+    cursor: pointer;
+    font-weight: 700;
+    font-family: "Lato", sans-serif;
+  }
 }
 
 /* Style pour la croix de fermeture, inchangé */
@@ -146,7 +203,7 @@
 @media screen and (max-width: 500px) {
   .userModal-content {
     width: 90vw; /* Ajustement de la largeur sur les petits écrans */
-    height: 120vw; /* Ajustement de la hauteur pour maintenir le carré */
+    // height: 120vw; /* Ajustement de la hauteur pour maintenir le carré */
   }
 
   .login-text {
@@ -175,6 +232,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 5px;
 }
 
 .modal-form input,
